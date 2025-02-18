@@ -12,7 +12,7 @@ class CreateProduct extends Component
 {
     use WithFileUploads;
 
-    public $name, $slug, $description, $price, $discount_price, $quantity, $image, $sku, $category_id, $brand, $status = 1;
+    public $name, $slug, $description, $price, $discount_price, $quantity, $image, $sku, $category_id, $brand;
     public $categories;
 
     public function mount()
@@ -38,7 +38,7 @@ class CreateProduct extends Component
             'sku'             => 'nullable|string|max:100|unique:products,sku',
             'category_id'     => 'required|exists:categories,id',
             'brand'           => 'nullable|string|max:255',
-            'status'          => 'required|boolean',
+           
         ]);
 
         // Image Upload Handling
@@ -46,8 +46,6 @@ class CreateProduct extends Component
         if ($this->image) {
             $imagePath = $this->image->store('products', 'public');
         }
-
-        // Create new product using explicit property assignment
         $product = new Product();
         $product->name  = $this->name;
         $product->slug  = $this->slug;
@@ -59,7 +57,7 @@ class CreateProduct extends Component
         $product->sku  = $this->sku;
         $product->category_id = $this->category_id;
         $product->brand = $this->brand;
-        $product->status  = $this->status;
+      
         $product->save();
 
         session()->flash('message', 'Product created successfully.');
@@ -68,6 +66,7 @@ class CreateProduct extends Component
 
     public function render()
     {
+       
         return view('livewire.product.create-product');
     }
 }

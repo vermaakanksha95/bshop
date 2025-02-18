@@ -19,7 +19,7 @@ class ManageCategory extends Component
     {
         $data['categories'] = Category::where('parent_category_id', NULL)->get();
         return view('livewire.category.manage-category', $data);
-        dd($data);
+        //dd($data);
     }
     public function UpdatedName(){
         $this->cat_slug = Str::slug($this->name);
@@ -54,8 +54,26 @@ class ManageCategory extends Component
         }
         $category->delete();
         return redirect('/manage-category')->with('success','Category deleted successfully.');
-      
+      }
 
+    public function update()
+    {
+        $this->validate([
+            'name' => 'required',
+            'cat_description' => 'required',
+        ]);
+        $category = new Category();
+        $category->parent_category_id = $this->parent_category_id;
+        $category->name = $this->name;
+        $category->cat_slug = $this->cat_slug;
+        $category->cat_description = $this->cat_description;
+
+        $category->save();
+        session()->flash('message', 'Category Update Successfully');
+        $this->dispatch('close-modal');
+        $this->dispatch('refresh-category');
+        return $this->redirect('/manage-category', navigate: true);
+        
     }
 
    

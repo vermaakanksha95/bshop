@@ -1,7 +1,10 @@
 <?php
 
+use App\Livewire\Auth\Register;
 use App\Livewire\Category\CreateCategory;
 use App\Livewire\Category\ManageCategory;
+use App\Livewire\Coupon\CreateCoupon;
+use App\Livewire\Coupon\ManageCoupon;
 use App\Livewire\Product\CreateProduct;
 use App\Livewire\Product\ManageProduct;
 use Illuminate\Support\Facades\Route;
@@ -18,3 +21,9 @@ Route::get('/create-category',CreateCategory::class)->name('category.create-cate
 Route::get('/manage-category',ManageCategory::class)->name('category.manage-category');
 Route::get('/create-product',CreateProduct::class)->name('product.create-product');
 Route::get('/manage-product',ManageProduct::class)->name('product.manage-product');
+Route::get('/manage-coupon',ManageCoupon::class)->name('coupon.manage-coupon');
+Route::get('/create-coupon',CreateCoupon::class)->name('coupon.create-coupon');
+
+Route::get("/register",Register::class)->name('register');
+
+

@@ -6,14 +6,14 @@
             <!-- Product Name -->
             <div>
                 <label class="block text-gray-700">Product Name</label>
-                <input type="text" wire:model="name" class="w-full p-2 border rounded">
+                <input type="text" wire:model.live="name" class="w-full p-2 border rounded">
                 @error('name') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
             </div>
 
             <!-- Slug -->
             <div>
                 <label class="block text-gray-700">Slug</label>
-                <input type="text" wire:model="slug" class="w-full p-2 border rounded">
+                <input type="text" wire:model.live="slug" class="w-full p-2 border rounded">
                 @error('slug') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
             </div>
 
@@ -24,6 +24,9 @@
                     <option value="">Select Category</option>
                     @foreach($categories as $category)
                     <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @foreach($category->subCategory as $subcat)
+                    <option value="{{$subcat->id}}">&nbsp;&nbsp;{{$subcat->name}}</option>
+                    @endforeach
                     @endforeach
                 </select>
                 @error('category_id') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
@@ -78,7 +81,7 @@
                 @error('description') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
             </div>
 
-           
+
         </div>
 
         <!-- Submit Button -->
