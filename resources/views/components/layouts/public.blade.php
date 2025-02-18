@@ -9,7 +9,9 @@
 </head>
 
 <body>
+    @livewire('public.component.header')
     {{ $slot }}
+    @livewire('public.component.footer')
 </body>
 
 </html>
