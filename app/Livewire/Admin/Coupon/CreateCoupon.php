@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Coupon;
+namespace App\Livewire\Admin\Coupon;
 
 use Livewire\Component;
 
@@ -8,6 +8,6 @@ class CreateCoupon extends Component
 {
     public function render()
     {
-        return view('livewire.coupon.create-coupon');
+        return view('livewire.admin.coupon.create-coupon');
     }
 }

@@ -1,15 +1,15 @@
 <div>
     <div class="max-w-lg mx-auto p-6 bg-white shadow-md rounded-lg">
         <h2 class="text-2xl font-bold mb-4">Create Coupon</h2>
-        <form >
-           
+        <form>
+
             <div class="mb-4">
                 <label class="block text-gray-700">Code</label>
                 <input type="text" name="code" class="w-full border p-2 rounded">
             </div>
             <div class="mb-4">
                 <label class="block text-gray-700">Discount Type</label>
-                <select name="discount_type" class="w-full border p-2 rounded" >
+                <select name="discount_type" class="w-full border p-2 rounded">
                     <option value="percentage">Percentage</option>
                     <option value="fixed">Fixed</option>
                 </select>

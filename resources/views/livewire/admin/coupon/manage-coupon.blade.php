@@ -14,7 +14,7 @@
                 </tr>
             </thead>
             <tbody>
-                
+
                 <tr class="border">
                     <td class="p-2 border"></td>
                     <td class="p-2 border"></td>
@@ -23,10 +23,10 @@
                     <td class="p-2 border"></td>
                     <td class="p-2 border">
                         <a href="" class="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded">Edit</a>
-                        
+
                     </td>
                 </tr>
-               
+
             </tbody>
         </table>
     </div>

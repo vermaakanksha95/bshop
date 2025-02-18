@@ -1,17 +1,14 @@
 <?php
 
-namespace App\Livewire\Product;
+namespace App\Livewire\Admin\Product;
 
 use App\Models\Category;
 use App\Models\Product;
 use Livewire\Component;
-use Livewire\WithFileUploads;
 use Illuminate\Support\Str;
 
 class CreateProduct extends Component
 {
-    use WithFileUploads;
-
     public $name, $slug, $description, $price, $discount_price, $quantity, $image, $sku, $category_id, $brand;
     public $categories;
 
@@ -38,7 +35,7 @@ class CreateProduct extends Component
             'sku'             => 'nullable|string|max:100|unique:products,sku',
             'category_id'     => 'required|exists:categories,id',
             'brand'           => 'nullable|string|max:255',
-           
+
         ]);
 
         // Image Upload Handling
@@ -57,16 +54,14 @@ class CreateProduct extends Component
         $product->sku  = $this->sku;
         $product->category_id = $this->category_id;
         $product->brand = $this->brand;
-      
+
         $product->save();
 
         session()->flash('message', 'Product created successfully.');
         return redirect()->route('product.manage-product');
     }
-
     public function render()
     {
-       
-        return view('livewire.product.create-product');
+        return view('livewire.admin.product.create-product');
     }
 }
