@@ -1,7 +1,7 @@
 <div class="flex flex-1 flex-col gap-5">
     <div class="flex flex-1 justify-between items-center p-5">
         <h2 class="border-l-4 border-slate-700 pl-2 text-xl">Manage Category</h2>
-        <button data-modal-target="default-modal" data-modal-toggle="default-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
+        <button data-modal-target="default-modal" data-modal-toggle="default-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button" wire:ignore.self>
             Create Category
         </button>
     </div>
@@ -9,8 +9,7 @@
         x-on:close-modal.window="() => {
                 const modal = tailwind.Modal.getInstance($el);
                 if (modal) modal.close();
-            }"
-        wire:ignore.self>
+            }" wire:ignore.self>
         <div class="relative p-4 w-full max-w-xl max-h-full">
             <div class="relative bg-white rounded-lg shadow-sm">
                 <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t border-gray-200">
@@ -42,7 +41,7 @@
                             <div class="mb-4">
                                 <label class="block text-gray-700">Main Category</label>
                                 <select wire:model="parent_category_id" class="w-full p-2 border rounded">
-                                    <option value="null">Select Main Category</option>
+                                    <option value="NULL">Select Main Category</option>
                                     @foreach($categories as $category)
                                     <option value="{{$category->id }}">{{ $category->name }}</option>
                                     @endforeach
@@ -58,7 +57,6 @@
                                 <textarea rows="2" wire:model="cat_description" class="w-full p-2 border rounded"></textarea>
                                 @error('cat_description') <span class="text-red-500">{{ $message }}</span> @enderror
                             </div>
-
                             <!-- Image Upload -->
                             <div class="md:col-span-2 flex items-center justify-center w-full">
                                 <label for="dropzone-file" class="flex flex-col items-center justify-center   w-full  h-48 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100 relative">
@@ -87,27 +85,47 @@
             </div>
         </div>
     </div>
+    <div class="flex flex-1">
+        @session('error')
+        <div class="bg-slate-500 text-white p-5 px-4 py-4 rounded-xl">
+            {{session('error')}}
+        </div>
+        @endsession
+        @session('success')
+        <div class="bg-teal-500 text-white p-5 px-4 py-4 rounded-xl">
+            {{session('success')}}
+        </div>
+        @endsession
+    </div>
     <div class="relative overflow-x-auto w-full">
         <table class="w-full text-sm text-left text-gray-500">
 
             <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                 <tr>
+                    <th scope="col" class="px-6 py-3">ID</th>
                     <th scope="col" class="px-6 py-3">Category name</th>
                     <th scope="col" class="px-6 py-3">Cat Slug</th>
                     <th scope="col" class="px-6 py-3">Cat Description</th>
+                    <th scope="col" class="px-6 py-3">Category Parent</th>
                     <th scope="col" class="px-6 py-3">Action</th>
-                    
+
                 </tr>
             </thead>
             <tbody>
                 @foreach($categories as $category)
                 <tr class="bg-white border-b border-gray-200">
+                    <td class="px-6 py-4">{{$category->id}}</td>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">{{$category->name}}</th>
                     <td class="px-6 py-4">{{$category->cat_slug}}</td>
                     <td class="px-6 py-4">{{$category->cat_description}}</td>
+                    <td class="px-6 py-4">@if($category->parentCategory == NULL)
+                        {{"Main Category"}}
+                        @else{{$category->parentCategory->name}}
+                        @endif
+                    </td>
                     <td class="px-6 py-4 gap-4 flex">
                         <button class=" px-4 py-2 bg-slate-400 text-white rounded ">Edit</button>
-                        <button class=" px-4 py-2 bg-red-400 text-white rounded">Delete</button>
+                        <button wire:click="delete({{$category->id}})" class=" px-4 py-2 bg-red-400 text-white rounded cursor-pointer">Delete</button>
                     </td>
 
                 </tr>

@@ -16,10 +16,7 @@ class CreateCategory extends Component
         $this->validate([
             'name' => 'required',
             'cat_slug' => 'nullable',
-            'cat_description' => 'required',
-           
-            
-        ]);
+            'cat_description' => 'required',]);
         $category = new Category();
         $category->name = $this->name;
         $category->cat_slug = $this->cat_slug;

@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Category extends Model
 {
@@ -18,8 +20,18 @@ class Category extends Model
         'status',
     ];
 
-    public function parentCategory()
+    public function parentCategory(): HasOne
     {
-        return $this->belongsTo(Category::class, 'id','parent_category_id');
+        return $this->hasOne(Category::class, 'id', 'parent_category_id');
+    }
+
+    public function subCategory(): HasMany
+    {
+        return $this->hasMany(Category::class, 'parent_category_id');
+    }
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
     }
 }
