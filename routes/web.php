@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+//Public Route
 Route::get('/home', Home::class)->name('home');
 
 //Admin Route

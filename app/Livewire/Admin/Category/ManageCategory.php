@@ -36,17 +36,17 @@ class ManageCategory extends Component
         session()->flash('message', 'Category created successfully');
         $this->dispatch('close-modal');
         $this->dispatch('refresh-category');
-        return $this->redirect('/manage-category', navigate: true);
+        return $this->redirect('/admin/manage-category', navigate: true);
         // return redirect()->route('category.manage-category');
     }
 
     public function delete(Category $category)
     {
         if ($category->subCategory()->exists()) {
-            return redirect('/manage-category')->with('error', 'This category has subcategories,Please delete them first.');
+            return redirect('/admin/manage-category')->with('error', 'This category has subcategories,Please delete them first.');
         }
         $category->delete();
-        return redirect('/manage-category')->with('success', 'Category deleted successfully.');
+        return redirect('/admin/manage-category')->with('success', 'Category deleted successfully.');
     }
 
     public function update()

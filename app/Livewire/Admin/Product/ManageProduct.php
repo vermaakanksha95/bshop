@@ -12,6 +12,16 @@ class ManageProduct extends Component
     {
         $this->products = Product::get();
     }
+    public function delete(Product $product){
+
+        if ($product->category()->exists()) {
+            return redirect('/admin/manage-product')->with('error', 'This product has parentcategories,Please delete them first.');
+        }
+        $product->delete();
+        return redirect('/admin/manage-product')->with('success', 'Product deleted successfully.');
+        
+
+    }
     public function render()
     {
         $products = Product::all();

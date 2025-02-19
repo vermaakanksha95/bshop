@@ -5,6 +5,18 @@
              Create Product
          </a>
      </div>
+     <div class="flex flex-1">
+         @session('error')
+         <div class="bg-slate-500 text-white p-5 px-4 py-4 rounded-xl" wire:loading.delay.short>
+             {{session('error')}}
+         </div>
+         @endsession
+         @session('success')
+         <div class="bg-teal-500 text-white p-5 px-4 py-4 rounded-xl" wire:loading.delay.short>
+             {{session('success')}}
+         </div>
+         @endsession
+     </div>
      <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
          <table class="w-full text-sm text-left text-gray-500">
              <thead class="text-xs text-gray-700 uppercase bg-gray-50">
@@ -24,8 +36,8 @@
                      <td class="px-6 py-4">{{$product->category->name}}</td>
                      <td class="px-6 py-4">$2999</td>
                      <td class="px-6 py-4">
-                         <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
-                         <a href="#" class="font-medium text-blue-600 hover:underline">Delete</a>
+                         <button class=" px-4 py-2 bg-slate-400 text-white rounded ">Edit</button>
+                         <button wire:click="delete({{$product->id}})" class=" px-4 py-2 bg-red-400 text-white rounded cursor-pointer">Delete</button>
 
                      </td>
                  </tr>
