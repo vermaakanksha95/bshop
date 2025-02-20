@@ -1,22 +1,40 @@
 <div>
-    <div class="max-w-6xl mx-auto mt-10 grid md:grid-cols-2 gap-6 items-center">
-        <!-- Left Side -->
-        <div class="relative">
-            <img src="gucci.jpg" class="w-full rounded-lg shadow-lg">
-            <div class="absolute top-1/3 left-10 text-black ">
-                <h1 class="text-4xl font-light">ANNA STONE & <span class="font-bold">JUD.</span></h1>
-                <p class="text-lg text-gray-700 mt-2">Introducing the Capsule Collection</p>
-                <button class="mt-4 bg-black text-white px-6 py-2 uppercase text-sm hover:bg-white hover:text-black transition border border-black">
-                    SHOP NOW
-                </button>
-            </div>
+    <div class="relative bg-gray-100 overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0">
+            <img
+                src="https://static.wixstatic.com/media/84770f_31b162dc5d2c487493fb435d6ddc9692~mv2.png/v1/crop/x_2,y_0,w_685,h_980/fill/w_513,h_734,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/84770f_31b162dc5d2c487493fb435d6ddc9692~mv2.png"
+                alt="Fashionable Clothing"
+                class="w-full h-full object-cover"/>
         </div>
-        <!-- Right Side -->
-        <div class="flex justify-center">
-            <img src="gucci.jpg" class="w-3/4 rounded-lg shadow-lg">
+
+        <!-- Overlay for better text readability -->
+        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+
+        <!-- Content Container -->
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 mt-20">
+            <div class="text-center">
+                <!-- Quote -->
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
+                    "Style is a way to say who you are without having to speak."
+                </h1>
+
+                <!-- Shop Now Button -->
+                <a
+                    href="/shop"
+                    class="inline-block px-8 py-3 bg-white text-gray-900 font-semibold rounded-lg hover:bg-gray-200 transition duration-300">
+                    Shop Now
+                </a>
+            </div>
         </div>
     </div>
     @livewire('public.component.product')
+
+    <img src=" dummy img.png" alt="">
+</div>
+
+
+
 
 
 
