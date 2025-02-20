@@ -7,6 +7,7 @@ use App\Models\Product;
 use Livewire\Component;
 use Illuminate\Support\Str;
 
+
 class CreateProduct extends Component
 {
     public $name, $slug, $description, $price, $discount_price, $quantity, $image, $sku, $category_id, $brand;
@@ -38,11 +39,11 @@ class CreateProduct extends Component
 
         ]);
 
-        // Image Upload Handling
-        $imagePath = null;
-        if ($this->image) {
-            $imagePath = $this->image->store('products', 'public');
-        }
+        // // Image Upload Handling
+        // $imagePath = null;
+        // if ($this->image) {
+        //     $imagePath = $this->image->store('products', 'public');
+        // }
         $product = new Product();
         $product->name  = $this->name;
         $product->slug  = $this->slug;
@@ -50,7 +51,7 @@ class CreateProduct extends Component
         $product->price   = $this->price;
         $product->discount_price = $this->discount_price;
         $product->quantity = $this->quantity;
-        $product->image  = $imagePath;
+        //$product->image  = $imagePath;
         $product->sku  = $this->sku;
         $product->category_id = $this->category_id;
         $product->brand = $this->brand;

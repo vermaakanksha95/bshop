@@ -41,7 +41,7 @@
                             </div>
                             <div class="mb-4">
                                 <label class="block text-gray-700">Category Slug</label>
-                                <input type="text" wire:model.live="cat_slug" class="w-full p-2 border rounded">
+                                <input type="text" disabled wire:model.live="cat_slug" class="w-full p-2 border rounded">
                                 @error('cat_slug') <span class="text-red-500">{{ $message }}</span> @enderror
                             </div>
                             <!-- Parent Category -->

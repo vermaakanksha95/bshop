@@ -9,11 +9,9 @@ use App\Livewire\Auth\Register;
 use App\Livewire\Public\Home;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 //Public Route
-Route::get('/home', Home::class)->name('home');
+Route::get('/', Home::class)->name('home');
 
 //Admin Route
 Route::prefix('admin')->group(function () {
