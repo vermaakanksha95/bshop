@@ -92,7 +92,7 @@
             </div>
         </div>
     </div>
-    <div class="flex flex-1">
+    <div class="flex">
         @session('error')
         <div class="bg-slate-500 text-white p-5 px-4 py-4 rounded-xl" wire:loading.delay.short>
             {{session('error')}}
@@ -104,7 +104,7 @@
         </div>
         @endsession
     </div>
-    <div class="relative overflow-x-auto w-full">
+    <div class=" w-full">
         <table class="w-full text-sm text-left text-gray-500">
 
             <thead class="text-xs text-gray-700 uppercase bg-gray-50">

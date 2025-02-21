@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $title ?? 'Admin Panel | BiharShop' }}</title>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
 
     @vite(['resources/css/app.css','resources/js/app.js'])
@@ -13,62 +14,76 @@
 
 <body>
     @include('components.navbar')
-    <div class=" flex">
-       
-            <aside class="w-64 bg-gray-900 text-white h-screen p-4 ">
-                <div class="text-xl font-bold mb-6">Admin Panel</div>
-                <nav class="space-y-4">
-                    <!-- <a href="/admin/dashboard" class="block px-4 py-2 hover:bg-gray-700 rounded">Dashboard</a>
-                    <a href="/admin/orders" class="block px-4 py-2 hover:bg-gray-700 rounded">Orders</a> -->
+    <div class=" flex gap-6 ">
+        <!-- Sidebar -->
+        <div class="w-80 bg-[#7db0ad] text-white p-5 space-y-6 h-screen text-xl ">
+            <h2 class="text-xl font-bold">Admin Panel</h2>
 
-                    <!-- Products Dropdown -->
-                    <div class="relative">
-                        <button onclick="document.getElementById('products-dropdown').classList.toggle('hidden')"
-                            class="w-full flex justify-between px-4 py-2 hover:bg-gray-700 rounded focus:outline-none">
-                            Category
-                            <span>&#9662;</span>
-                        </button>
-                        <div id="products-dropdown" class="hidden ml-4 mt-2 space-y-2">
-                            <a href="/admin/products/manage" class="block px-4 py-2 hover:bg-gray-700 rounded">Manage Products</a>
-                            <a href="/admin/products/create" class="block px-4 py-2 hover:bg-gray-700 rounded">Create Product</a>
-                        </div>
-                    </div>
-                    <div class="relative">
-                        <button onclick="document.getElementById('products-dropdown').classList.toggle('hidden')"
-                            class="w-full flex justify-between px-4 py-2 hover:bg-gray-700 rounded focus:outline-none">
-                            Products
-                            <span>&#9662;</span>
-                        </button>
-                        <div id="products-dropdown" class="hidden ml-4 mt-2 space-y-2">
-                            <a href="/admin/products/manage" class="block px-4 py-2 hover:bg-gray-700 rounded">Manage Products</a>
-                            <a href="/admin/products/create" class="block px-4 py-2 hover:bg-gray-700 rounded">Create Product</a>
-                        </div>
-                    </div>
-                    <div class="relative">
-                        <button onclick="document.getElementById('products-dropdown').classList.toggle('hidden')"
-                            class="w-full flex justify-between px-4 py-2 hover:bg-gray-700 rounded focus:outline-none">
-                            Products
-                            <span>&#9662;</span>
-                        </button>
-                        <div id="products-dropdown" class="hidden ml-4 mt-2 space-y-2">
-                            <a href="/admin/products/manage" class="block px-4 py-2 hover:bg-gray-700 rounded">Manage Products</a>
-                            <a href="/admin/products/create" class="block px-4 py-2 hover:bg-gray-700 rounded">Create Product</a>
-                        </div>
-                    </div>
+            <ul>
+                <li x-data="{ open: false }">
+                    <button @click="open = !open" class="w-full flex justify-between p-3 rounded-md hover:bg-[#2e716b]">
+                        Category
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform" :class="{'rotate-180': open}" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06-.02L10 10.06l3.71-3.87a.75.75 0 111.08 1.04l-4.25 4.44a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <ul x-show="open" class="ml-5 mt-2 space-y-2">
+                        <li><a href="{{route('category.manage-category')}}" class="block p-2 rounded-md hover:bg-[#2e716b]">Manage Category</a></li>
 
-                    <!-- <a href="/admin/customers" class="block px-4 py-2 hover:bg-gray-700 rounded">Customers</a>
-                    <a href="/admin/reports" class="block px-4 py-2 hover:bg-gray-700 rounded">Reports</a>
-                    <a href="/admin/settings" class="block px-4 py-2 hover:bg-gray-700 rounded">Settings</a> -->
-                </nav>
-            </aside>
+                    </ul>
+                </li>
 
-        
+                <li x-data="{ open: false }">
+                    <button @click="open = !open" class="w-full flex justify-between p-3 rounded-md hover:bg-[#2e716b]">
+                        Product
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform" :class="{'rotate-180': open}" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06-.02L10 10.06l3.71-3.87a.75.75 0 111.08 1.04l-4.25 4.44a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <ul x-show="open" class="ml-5 mt-2 space-y-2">
+                        <li><a href="{{route('product.create-product')}}" class="block p-2 rounded-md hover:bg-[#2e716b]">Create Product</a></li>
+                        <li><a href="{{route('product.manage-product')}}" class="block p-2 rounded-md hover:bg-[#2e716b]">Manage Product</a></li>
+                    </ul>
+                </li>
+                <li x-data="{ open: false }">
+                    <button @click="open = !open" class="w-full flex justify-between p-3 rounded-md hover:bg-[#2e716b]">
+                        Coupon
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform" :class="{'rotate-180': open}" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06-.02L10 10.06l3.71-3.87a.75.75 0 111.08 1.04l-4.25 4.44a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <ul x-show="open" class="ml-5 mt-2 space-y-2">
+                        <li><a href="{{route('coupon.create-coupon')}}" class="block p-2 rounded-md hover:bg-[#2e716b]">Create Coupon</a></li>
+                        <li><a href="{{route('coupon.manage-coupon')}}" class="block p-2 rounded-md hover:bg-[#2e716b]">Manage Coupon</a></li>
+                    </ul>
+                </li>
+                <!-- <li x-data="{ open: false }">
+                    <button @click="open = !open" class="w-full flex justify-between p-3 rounded-md hover:bg-gray-700">
+                        Category
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform" :class="{'rotate-180': open}" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06-.02L10 10.06l3.71-3.87a.75.75 0 111.08 1.04l-4.25 4.44a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <ul x-show="open" class="ml-5 mt-2 space-y-2">
+                        <li><a href="#" class="block p-2 rounded-md hover:bg-gray-700">Manage Category</a></li>
+                        <li><a href="#" class="block p-2 rounded-md hover:bg-gray-700">Create Category</a></li>
+                    </ul>
+                </li> -->
 
-        <div>
+                <!-- <li><a href="#" class="block p-3 rounded-md hover:bg-gray-700">Order</a></li>
+                <li><a href="#" class="block p-3 rounded-md hover:bg-gray-700">Customers</a></li> -->
+            </ul>
+        </div>
+
+
+        <div class=" w-full">
             {{$slot}}
         </div>
 
+
     </div>
+
+
 
 
     @livewireScripts

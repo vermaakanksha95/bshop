@@ -1,33 +1,30 @@
-<div>
-    <div class="max-w-7xl mx-auto p-6 bg-white shadow-md rounded-lg">
-        <h2 class="text-2xl font-bold mb-4">Manage Coupons</h2>
-        <a href="{{route('coupon.create-coupon')}}" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">Create Coupon</a>
-        <table class="w-full mt-4 border border-gray-200">
+<div class="flex-1 p-6">
+    <div class=" flex justify-between items-center">
+        <h1 class="text-2xl font-bold">Manage Coupons</h1>
+        <button class=" px-4 py-2 text-white bg-[#7db0ad] rounded  text-xl ">Create Coupon</button>
+    </div>
+    <div class="mt-6 bg-white p-4 ">
+        <table class="w-full border-collapse border border-gray-200">
             <thead>
                 <tr class="bg-gray-100">
-                    <th class="p-2 border">Code</th>
-                    <th class="p-2 border">Discount Type</th>
-                    <th class="p-2 border">Value</th>
-                    <th class="p-2 border">Expiration Date</th>
-                    <th class="p-2 border">Status</th>
-                    <th class="p-2 border">Actions</th>
+                    <th class="border p-2">Coupon Code</th>
+                    <th class="border p-2">Discount Type</th>
+                    <th class="border p-2">Discount Value</th>
+                    <th class="border p-2">Expiration Date</th>
+                    <th class="border p-2">Action</th>
                 </tr>
             </thead>
             <tbody>
-
-                <tr class="border">
-                    <td class="p-2 border"></td>
-                    <td class="p-2 border"></td>
-                    <td class="p-2 border"></td>
-                    <td class="p-2 border"></td>
-                    <td class="p-2 border"></td>
-                    <td class="p-2 border">
-                        <a href="" class="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded">Edit</a>
-
+                <tr>
+                    <td class="border p-2">SAVE20</td>
+                    <td class="border p-2">Percentage</td>
+                    <td class="border p-2">20%</td>
+                    <td class="border p-2">2025-12-31</td>
+                    <td class="border p-2">
+                        <button class="bg-blue-500 text-white px-3 py-1 rounded">Edit</button>
+                        <button class="bg-red-500 text-white px-3 py-1 rounded ml-2">Delete</button>
                     </td>
                 </tr>
-
             </tbody>
         </table>
     </div>
-</div>

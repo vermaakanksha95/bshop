@@ -22,7 +22,7 @@
 
             <!-- Center Logo -->
             <div class="text-3xl font-bold text-[#7db0ad] tracking-wider">
-                BiharShop
+                BIHARSHOP
             </div>
 
             <!-- Right: Login & Social Icons -->

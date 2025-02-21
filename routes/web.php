@@ -5,6 +5,7 @@ use App\Livewire\Admin\Coupon\CreateCoupon;
 use App\Livewire\Admin\Coupon\ManageCoupon;
 use App\Livewire\Admin\Product\CreateProduct;
 use App\Livewire\Admin\Product\ManageProduct;
+use App\Livewire\Admin\Product\ViewProduct;
 use App\Livewire\Auth\Register;
 use App\Livewire\Public\Home;
 use Illuminate\Support\Facades\Route;
@@ -27,3 +28,8 @@ Route::prefix('admin')->group(function () {
 
 //Authentication Route
 Route::get("/register", Register::class)->name('register');
+
+Route::get('viewproduct', ViewProduct::class)->name('viewproduct');
+ 
+    
+

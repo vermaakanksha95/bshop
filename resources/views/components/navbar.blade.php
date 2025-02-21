@@ -1,4 +1,4 @@
-<nav class="bg-gray-900 text-white p-4 shadow-md ">
+<nav class="bg-[#2e716b] text-white p-4 shadow-md ">
     <div class="container mx-auto flex justify-between items-center">
         <!-- Logo -->
         <a href="/admin" class="text-xl font-bold">BiharShop Admin</a>
@@ -8,7 +8,7 @@
             <a href="/admin" class="hover:text-gray-400">Dashboard</a>
             <a href="/admin/orders" class="hover:text-gray-400">Orders</a>
             <a href="/admin/manage-product" class="hover:text-gray-400">Products</a>
-            
+
         </div>
 
         <!-- User Profile / Dropdown or Login Button -->
