@@ -1,24 +1,24 @@
 <div>
-    <div class="relative bg-gray-100 overflow-hidden">
-        <!-- Background Image -->
-        <div class="absolute inset-0 opacity-50">
+    <!-- <div class="relative bg-gray-100 overflow-hidden">
+       
+        <div class="absolute inset-0">
             <img
-                src="herosection.webp"
+                src="https://i.pinimg.com/736x/41/b2/06/41b206bc257d0079c9f02ce41d306c82.jpg"
                 class="w-full h-full object-cover" />
         </div>
 
-        <!-- Overlay for better text readability -->
+       
         <div class="absolute inset-0  bg-opacity-40"></div>
 
-        <!-- Content Container -->
+       
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 mt-20">
             <div class="text-center">
-                <!-- Quote -->
+                
                 <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#7db0ad] mb-6">
                     "Style is a way to say who you are without having to speak."
                 </h1>
 
-                <!-- Shop Now Button -->
+
                 <a
                     href="/shop"
                     class="inline-block px-8 py-3 bg-white text-[#7db0ad] font-semibold rounded-lg hover:bg-gray-200 transition duration-300">
@@ -26,6 +26,9 @@
                 </a>
             </div>
         </div>
+    </div> -->
+    <div  class="relative  overflow-hidden mt-28 md:min-h-[90vh] ">
+        <img src="herosection2.jpg" alt=""class="object-fit w-full h-full" />
     </div>
     @livewire('public.component.product')
     <div class="max-w-4xl mx-auto text-center py-16 -mt-15">

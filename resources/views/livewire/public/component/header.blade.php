@@ -1,4 +1,4 @@
-<div class="bg-white shadow-md fixed  z-100 w-full">
+<div class="bg-white shadow-md fixed z-100 w-full top-0">
     <!-- Free Shipping Bar -->
     <div class="w-full py-3 bg-[#7db0ad]">
         <h1 class="text-center font-light text-white text-xl">FREE SHIPPING WORLDWIDE</h1>

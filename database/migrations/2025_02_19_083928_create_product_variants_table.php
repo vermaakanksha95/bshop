@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -13,6 +12,17 @@ return new class extends Migration
     {
         Schema::create('product_variants', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('product_id')->constrained()->onDelete('cascade');
+            $table->string('sku')->unique();
+            $table->string('size')->nullable();
+            $table->string('color')->nullable();
+            $table->string('material')->nullable();
+            $table->decimal('price', 10, 2)->nullable(); // Variant-specific price
+            $table->decimal('discount_price', 10, 2)->nullable();
+            $table->integer('stock')->default(0);
+            $table->decimal('weight', 8, 2)->nullable();
+            $table->string('image')->nullable();
+            $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
         });
     }

@@ -13,43 +13,44 @@ use Livewire\WithFileUploads;
 
 class CreateProduct extends Component
 {
-    public $slug, $description, $price, $discount_price, $quantity, $image, $sku, $category_id, $brand,$photo;
-    public $categories=[];
+    public $slug, $description, $price, $discount_price, $quantity, $image, $sku, $category_id, $brand, $photo;
+    public $categories = [];
     use WithFileUploads;
 
-   
-   #[Validate('required')]
-   public $name = '';
+
+    #[Validate('required')]
+    public $name = '';
 
     public function updatedName()
     {
         $this->slug = Str::slug($this->name);
     }
 
-    public function store(){
+    public function store()
+    {
         $this->validate();
-       $product = Product::create([
-              'name'=>$this->name,
-              'slug'=>$this->slug,
-              'description'=>$this->description,
-              'price'=>$this->price,
-              'discount_price'=>$this->discount_price,
-              'quantity'=>$this->quantity,
-              //'image'=>$this->image->store('products'),
-              'sku'=>$this->sku,
-              'category_id'=>$this->category_id,
-              'brand'=>$this->brand,
-       ]);
-       if($product){
-        session()->flash('success','Product Inserted Successfully');
-       
-        return redirect()->route('product.manage-product');
-       }else{
-        session()->flash('error','Product Inserted Failed');
-        return redirect()->back();
-       }
+        $product = Product::create([
+            'name' => $this->name,
+            'slug' => $this->slug,
+            'description' => $this->description,
+            'price' => $this->price,
+            'discount_price' => $this->discount_price,
+            'quantity' => $this->quantity,
+            //'image'=>$this->image->store('products'),
+            'sku' => $this->sku,
+            'category_id' => $this->category_id,
+            'brand' => $this->brand,
+        ]);
+        if ($product) {
+            session()->flash('success', 'Product Inserted Successfully');
+
+            return redirect()->route('viewproduct', $product);
+        } else {
+            session()->flash('error', 'Product Inserted Failed');
+            return redirect()->back();
+        }
     }
-    
+
     public function mount()
     {
         $this->categories = Category::get();

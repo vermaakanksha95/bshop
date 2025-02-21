@@ -29,7 +29,7 @@ Route::prefix('admin')->group(function () {
 //Authentication Route
 Route::get("/register", Register::class)->name('register');
 
-Route::get('viewproduct', ViewProduct::class)->name('viewproduct');
+Route::get('viewproduct/{product}', ViewProduct::class)->name('viewproduct');
  
     
 
