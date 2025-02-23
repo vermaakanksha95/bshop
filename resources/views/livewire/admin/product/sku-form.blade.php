@@ -2,7 +2,7 @@
     <div class="max-w-lg mx-auto mt-10 bg-white p-6">
         <form wire:submit.prevent="update">
             <div class="p-5 bg-gray-50 border border-gray-200">
-                <label class="block text-[#7db0ad] text-sm font-semibold mb-2">Product Brand</label>
+                <label class="block text-[#7db0ad] text-sm font-semibold mb-2">Product Sku</label>
 
                 @if($isEditing)
                 <div>

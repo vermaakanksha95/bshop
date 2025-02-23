@@ -30,7 +30,7 @@ class PriceForm extends Component
     public function update()
     {
         $this->validate([
-            'price' => 'required|numeric',
+            'price' => 'required|numeric|min:1',
         ]);
 
         $this->product->update([

@@ -4,17 +4,18 @@ namespace App\Livewire\Admin\Product;
 
 use App\Models\Product;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class ImageForm extends Component
 {
     public $product;
-    public $image;
+    public $photo;
     public $isEditing = false;
 
     public function mount( Product $product)
     {
         $this->product = $product;
-        $this->image = $product->image;
+        $this->photo = $product->photo;
     }
     public function edit()
     {
@@ -23,16 +24,23 @@ class ImageForm extends Component
     public function cancel()
     {
         $this->isEditing = false;
-        $this->image = $this->product->image;
+        $this->photo = $this->product->photo;
     }
     public function update()
     {
         $this->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
+        if ($this->photo) {
+            $imageName = time().'.'.$this->photo->extension();  
+            $this->photo->storeAs( $imageName, 'public');
+        } else {
+            $imageName = $this->product->image; 
+        }
+
         $this->product->update([
-            'image' => $this->image->store('products', 'public'),
+            'image' => $imageName,
         ]);
 
         $this->isEditing = false;

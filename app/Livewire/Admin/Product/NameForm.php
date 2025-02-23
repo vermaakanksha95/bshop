@@ -10,23 +10,25 @@ class NameForm extends Component
     public $product;
     public $name;
     public $isEditing = false;
+
     public function mount(Product $product)
     {
         $this->product = $product;
+        $this->name = $product->name;
     }
     public function edit()
     {
-        $this->name = $this->product->name;
         $this->isEditing = true;
     }
     public function cancel()
     {
         $this->isEditing = false;
+        $this->name = $this->product->name;
     }
     public function update()
     {
         $this->validate([
-            'name' => 'required|string',
+            'name' => 'required|string|max:255',
         ]);
         $this->product->update([
             'name' => $this->name,

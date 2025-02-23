@@ -4,6 +4,7 @@ use App\Livewire\Admin\Category\ManageCategory;
 use App\Livewire\Admin\Coupon\CreateCoupon;
 use App\Livewire\Admin\Coupon\ManageCoupon;
 use App\Livewire\Admin\Product\CreateProduct;
+use App\Livewire\Admin\Product\CreateProductVariant;
 use App\Livewire\Admin\Product\ManageProduct;
 use App\Livewire\Admin\Product\ViewProduct;
 use App\Livewire\Auth\Register;
@@ -30,6 +31,7 @@ Route::prefix('admin')->group(function () {
 Route::get("/register", Register::class)->name('register');
 
 Route::get('viewproduct/{product}', ViewProduct::class)->name('viewproduct');
+// Route::get('variantproduct', CreateProductVariant::class)->name('variantproduct');
  
     
 

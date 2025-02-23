@@ -6,7 +6,7 @@
 
                 @if($isEditing)
                 <div>
-                    <input type="text" wire:model.live="price" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7db0ad] hover:border-[#7db0ad] transition-all" placeholder="Enter new product discountprice">
+                    <input type="number" wire:model.live="price" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7db0ad] hover:border-[#7db0ad] transition-all" placeholder="Enter new product discountprice">
                     <div class="mt-4 flex gap-3">
                         <button type="submit" class="bg-[#7db0ad] text-white px-4 py-2 rounded-md text-sm font-semibold hover:bg-[#699b99] hover:scale-105 transition-all">Save</button>
                         <button type="button" wire:click="cancel" class="bg-[#7db0ad] text-white px-4 py-2 rounded-md text-sm font-semibold hover:bg-[#699b99] hover:scale-105 transition-all">Cancel</button>

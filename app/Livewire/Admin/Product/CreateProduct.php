@@ -36,7 +36,7 @@ class CreateProduct extends Component
             'price' => $this->price,
             'discount_price' => $this->discount_price,
             'quantity' => $this->quantity,
-            //'image'=>$this->image->store('products'),
+            'image'=>$this->image,
             'sku' => $this->sku,
             'category_id' => $this->category_id,
             'brand' => $this->brand,

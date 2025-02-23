@@ -1,20 +1,22 @@
 <?php
 
 namespace App\Livewire\Admin\Product;
-
+use App\Models\Category;
 use App\Models\Product;
 use Livewire\Component;
 
 class CategoryForm extends Component
 {
     public $product;
-    public $category;
+    public $categories = [];
+    public $category_id;
     public $isEditing = false;
 
     public function mount( Product $product)
     {
         $this->product = $product;
-        $this->category = $product->category;
+        $this->categories = Category ::all();
+        $this ->category_id = $product->category_id?? null;
     }
     public function edit()
     {
@@ -23,16 +25,16 @@ class CategoryForm extends Component
     public function cancel()
     {
         $this->isEditing = false;
-        $this->category = $this->product->category;
+        $this->category_id = $this->product->category_id;
     }
     public function update()
     {
         $this->validate([
-            'category' => 'required|string|max:255',
+            'category_id' => 'nullable|exists:categories,id',
         ]);
 
         $this->product->update([
-            'category' => $this->category,
+            'category_id' => $this->category_id,
         ]);
 
         $this->isEditing = false;
@@ -41,6 +43,8 @@ class CategoryForm extends Component
     
     public function render()
     {
-        return view('livewire.admin.product.category-form');
+        return view('livewire.admin.product.category-form', [
+            'categories' => $this->categories,
+        ]);
     }
 }

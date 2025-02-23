@@ -28,7 +28,7 @@ class QuantityForm extends Component
     public function update()
     {
         $this->validate([
-            'quantity' => 'required|numeric',
+            'quantity' => 'required|integer|min:0',
         ]);
 
         $this->product->update([

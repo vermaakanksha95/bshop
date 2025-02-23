@@ -28,5 +28,9 @@ class Product extends Model
     {
         return $this->hasOne(Category::class, "id", "category_id");
     }
+    public function variants()
+    {
+        return $this->hasMany(ProductVariant::class);
+    }
 
 }

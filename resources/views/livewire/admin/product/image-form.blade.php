@@ -6,18 +6,29 @@
 
                 @if($isEditing)
                 <div>
-                    <input type="file" wire:model.live="image" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7db0ad] hover:border-[#7db0ad] transition-all" placeholder="Enter new product image">
-                    <div class="mt-4 flex gap-3">
-                        <button type="submit" class="bg-[#7db0ad] text-white px-4 py-2 rounded-md text-sm font-semibold hover:bg-[#699b99] hover:scale-105 transition-all">Save</button>
-                        <button type="button" wire:click="cancel" class="bg-[#7db0ad] text-white px-4 py-2 rounded-md text-sm font-semibold hover:bg-[#699b99] hover:scale-105 transition-all">Cancel</button>
+                    <input type="file" wire:model="photo" class="w-full px-3 py-2 border rounded-lg">
+                    <div wire:loading wire:target="photo" class="mt-2 text-[#7db0ad]">Uploading...</div>
+
+                    @if ($photo)
+                    <img src="{{ $photo->temporaryUrl() }}" class="mt-4 w-32 h-32">
+                    @endif
+
+                    <div class="mt-2 flex gap-2">
+                        <button type="submit" class="bg-[#7db0ad] text-white text-xs px-3 py-1 rounded-md hover:bg-[#5a8f89] transition-all">SAVE</button>
+                        <button type="button" wire:click="cancel" class="bg-gray-500 text-white text-xs px-3 py-1 rounded-md hover:bg-gray-600 transition-all">CANCEL</button>
                     </div>
                 </div>
                 @else
                 <div class="flex items-center justify-between p-3 bg-gray-100 border border-gray-300 rounded-md hover:shadow-md hover:bg-gray-200 transition-all cursor-pointer">
-                    <span class="text-[#7db0ad] font-medium">{{ $product->image }}</span>
-                    <button type="button" wire:click="edit" class="bg-[#7db0ad] text-white px-3 py-2 rounded-md text-sm font-semibold hover:bg-[#699b99] hover:scale-105 transition-all">Edit</button>
+                    @if($product->image)
+                    <img src="{{ asset('storage/image/product/' . $product->image) }}" class="w-32 h-32">
+                    @else
+                    <span class="text-[#7db0ad]">No Image</span>
+                    @endif
+                    <button type="button" wire:click="edit" class="bg-[#7db0ad] text-white text-xs px-3 py-1 rounded-md hover:bg-[#5a8f89] transition-all">EDIT</button>
                 </div>
                 @endif
+
             </div>
         </form>
 

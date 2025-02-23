@@ -29,7 +29,7 @@ class SkuForm extends Component
     public function update()
     {
         $this->validate([
-            'sku' => 'required|string|max:255',
+            'sku' => 'required|string',
         ]);
 
         $this->product->update([
