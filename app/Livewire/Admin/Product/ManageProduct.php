@@ -11,9 +11,18 @@ class ManageProduct extends Component
 
     public function render()
     {
-        
         $products = Product::where('name', 'like', '%' . $this->searchTerm . '%')
             ->orWhere('description', 'like', '%' . $this->searchTerm . '%')
             ->get();
+
+        
+        return view('livewire.admin.product.manage-product', compact('products'));
+        dd($products);
+    }
+    public function delete($id)
+    {
+        $product = Product::find($id);
+        $product->delete();
+        session()->flash('message', 'Product deleted successfully.');
     }
 }

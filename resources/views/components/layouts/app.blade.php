@@ -28,11 +28,11 @@
                         </svg>
                     </button>
                     <ul x-show="open" class="ml-5 mt-2 space-y-2">
-                        <li><a href="{{route('category.manage-category')}}" class="block p-2 rounded-md hover:bg-[#2e716b]">Manage Category</a></li>
+                        <li><a href="{{route('category.create-category')}}" class="block p-2 rounded-md hover:bg-[#2e716b]">Create Category</a></li>
 
                     </ul>
                     <ul x-show="open" class="ml-5 mt-2 space-y-2">
-                        <li><a href="{{route('category.create-category')}}" class="block p-2 rounded-md hover:bg-[#2e716b]">Manage Category</a></li>
+                        <li><a href="{{route('category.manage-category')}}" class="block p-2 rounded-md hover:bg-[#2e716b]">Manage Category</a></li>
 
                     </ul>
                 </li>

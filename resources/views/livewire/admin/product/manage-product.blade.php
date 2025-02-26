@@ -37,11 +37,10 @@
                     <th scope="row" class="px-6 py-4 font-medium text-[#7db0ad] whitespace-nowrap">{{$product->id}}</th>
                     <td class="px-6 py-4">{{$product->name}}</td>
                     <td class="px-6 py-4">{{$product->description}}</td>
-
-                    <td class="px-6 py-4">$2999</td>
+                    <td class="px-6 py-4">{{$product->price}}</td>
                     <td class="px-6 py-4">
-                        <button class="px-4 py-2 bg-[#7db0ad] text-white rounded hover:bg-[#689e9b]">Edit</button>
-                        <button wire:click="delete({{$product->id}})" class="px-4 py-2 bg-red-400 text-white rounded cursor-pointer">Delete</button>
+                        <button  class="px-4 py-2 bg-[#7db0ad] text-white rounded hover:bg-[#689e9b]">Edit</button>
+                        <button wire:click="delete({{$product->id}})" wire:confirm="Are you sure you want to delete this Product?" class="px-4 py-2 bg-red-400 text-white rounded cursor-pointer">Delete</button>
                     </td>
                 </tr>
                 @endforeach

@@ -33,7 +33,7 @@
                         <label for="slug" class="mb-3 block text-sm font-medium text-gray-800">
                             Category Slug
                         </label>
-                        <input type="text" id="slug" wire:model="slug"
+                        <input type="text" id="slug" wire:model.live="slug"
                             class="w-full rounded border border-gray-300 bg-gray-200 px-5 py-3 text-gray-700" readonly />
                         @error('slug')
                         <span class="text-red-500 text-xs">{{ $message }}</span>
