@@ -23,9 +23,10 @@
         <table class="w-full text-sm text-left text-[#7db0ad]">
             <thead class="text-xs uppercase bg-gray-50 text-[#7db0ad] border-b border-[#7db0ad]">
                 <tr>
+                    <th scope="col" class="px-6 py-3">Product Id</th>
                     <th scope="col" class="px-6 py-3">Product name</th>
                     <th scope="col" class="px-6 py-3">Product Description</th>
-                    
+
                     <th scope="col" class="px-6 py-3">Price</th>
                     <th scope="col" class="px-6 py-3">Action</th>
                 </tr>
@@ -33,9 +34,10 @@
             <tbody>
                 @foreach($products as $product)
                 <tr class="odd:bg-white even:bg-gray-50 border-b border-[#7db0ad]">
-                    <th scope="row" class="px-6 py-4 font-medium text-[#7db0ad] whitespace-nowrap">{{$product->name}}</th>
+                    <th scope="row" class="px-6 py-4 font-medium text-[#7db0ad] whitespace-nowrap">{{$product->id}}</th>
+                    <td class="px-6 py-4">{{$product->name}}</td>
                     <td class="px-6 py-4">{{$product->description}}</td>
-                   
+
                     <td class="px-6 py-4">$2999</td>
                     <td class="px-6 py-4">
                         <button class="px-4 py-2 bg-[#7db0ad] text-white rounded hover:bg-[#689e9b]">Edit</button>

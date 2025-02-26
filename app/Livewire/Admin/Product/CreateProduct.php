@@ -21,32 +21,56 @@ class CreateProduct extends Component
     #[Validate('required')]
     public $name = '';
 
-    public function updatedName()
+    public function rules()
     {
-        $this->slug = Str::slug($this->name);
+        return [
+            'name' => ['required', 'string', 'max:255'],
+            'slug' => ['required', 'string', 'max:255'],
+        ];
+    }
+    
+    
+
+    public function updatedName($value)
+    {
+        $this->slug = Str::slug($value);
     }
 
     public function store()
     {
-        $this->validate();
+        // Validate inputs based on the rules set in the class
+        $validatedData = $this->validate();
+
+        // Debug the validated data to see what's being passed
+
+        if ($this->photo) {
+            $imageName = "C" . time() . '.' . $this->photo->getClientOriginalExtension();
+            $this->photo->storeAs('public/image/product', $imageName);
+        } else {
+            $imageName = null;
+        }
+
+        // Insert the category into the database
         $product = Product::create([
             'name' => $this->name,
-            'slug' => $this->slug,
             'description' => $this->description,
+            'slug' => $this->slug,
             'price' => $this->price,
             'discount_price' => $this->discount_price,
             'quantity' => $this->quantity,
-            'image'=>$this->image,
             'sku' => $this->sku,
             'category_id' => $this->category_id,
             'brand' => $this->brand,
+            'image' => $imageName,
+            'status' => 0
         ]);
-        if ($product) {
-            session()->flash('success', 'Product Inserted Successfully');
 
-            return redirect()->route('viewproduct', $product);
+        // Redirect with success or error message
+        if ($product) {
+            session()->flash('success', 'Product added successfully.');
+            return redirect()->route('product.viewproduct', $product->slug);
         } else {
-            session()->flash('error', 'Product Inserted Failed');
+            session()->flash('error', 'Unable to add product.');
             return redirect()->back();
         }
     }
@@ -57,6 +81,7 @@ class CreateProduct extends Component
     }
     public function render()
     {
-        return view('livewire.admin.product.create-product');
+        $categories = Category::get();
+        return view('livewire.admin.product.create-product')->with('categories', $categories);
     }
 }

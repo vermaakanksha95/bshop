@@ -10,20 +10,7 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'name',
-        'slug',
-        'description',
-        'price',
-        'discount_price',
-        'quantity',
-        'sku',
-        'image',
-        'category_id',
-        'brand',
-        'status',
-    ];
-
+    protected $guarded = [];
     public function category()
     {
         return $this->hasOne(Category::class, "id", "category_id");
@@ -32,5 +19,10 @@ class Product extends Model
     {
         return $this->hasMany(ProductVariant::class);
     }
+    public function images()
+    {
+        return $this->hasMany(ProductImage::class);
+    }
+
 
 }

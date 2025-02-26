@@ -8,6 +8,7 @@ use Livewire\WithFileUploads;
 
 class ImageForm extends Component
 {
+    use WithFileUploads;
     public $product;
     public $photo;
     public $isEditing = false;

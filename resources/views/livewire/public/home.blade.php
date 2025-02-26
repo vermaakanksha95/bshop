@@ -27,10 +27,14 @@
             </div>
         </div>
     </div> -->
-    <div  class="relative  overflow-hidden mt-28 md:min-h-[90vh] ">
-        <img src="herosection2.jpg" alt=""class="object-fit w-full h-full" />
+    <div class="relative overflow-hidden mt-28 md:min-h-[90vh]">
+        <img src="herosection2.jpg" alt="" class="object-fit w-full h-full" />
     </div>
+
+   
+
     @livewire('public.component.product')
+
     <div class="max-w-4xl mx-auto text-center py-16 -mt-15">
         <h1 class="text-5xl font-light text-[#7db0ad]">About the Collection</h1>
         <p class="text-xl text-gray-600 mt-4 max-w-5xl mx-auto">
@@ -38,7 +42,10 @@
         </p>
     </div>
 
-    <img src=" dummy img.png" alt="">
+
+    <img src="dummy img.png" alt="">
+
+
 </div>
 
 

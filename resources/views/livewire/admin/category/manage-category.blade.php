@@ -1,124 +1,131 @@
-<div class="flex flex-1 flex-col gap-5">
-    <div class="flex flex-1 justify-between items-center p-5">
-        <h2 class="border-l-4 border-[#7db0ad] pl-2 text-xl text-[#7db0ad]">Manage Category</h2>
-        <button data-modal-target="default-modal" data-modal-toggle="default-modal" class="block text-white bg-[#7db0ad] hover:bg-[#689e9b] focus:ring-4 focus:outline-none focus:ring-[#7db0ad] font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button" wire:ignore.self>
-            Create Category
-        </button>
-    </div>
-
-    <div id="default-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full" x-data
-        x-on:close-modal.window="() => {
-                const modal = tailwind.Modal.getInstance($el);
-                if (modal) modal.close();
-            }" wire:ignore.self>
-        <div class="relative p-4 w-full max-w-xl max-h-full">
-            <div class="relative bg-white rounded-lg shadow-sm">
-                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t border-[#7db0ad]">
-                    <h3 class="text-xl font-semibold text-[#7db0ad]">Insert Category</h3>
-                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center" data-modal-hide="default-modal">
-                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                        </svg>
-                        <span class="sr-only">Close modal</span>
-                    </button>
-                </div>
-                <div class="flex flex-1">
-                    @session('message')
-                    <div class="bg-[#7db0ad] text-white p-5 px-4 py-4 rounded-xl">
-                        {{session('message')}}
-                    </div>
-                    @endsession
-                </div>
-                <div class="p-4 md:p-5 space-y-4">
-                    <form wire:submit.prevent="save">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="mb-4">
-                                <label class="block text-[#7db0ad]">Category Name</label>
-                                <input type="text" wire:model.live="name" class="w-full p-2 border rounded border-[#7db0ad]">
-                                @error('name') <span class="text-red-500">{{ $message }}</span> @enderror
-                            </div>
-                            <div class="mb-4">
-                                <label class="block text-[#7db0ad]">Category Slug</label>
-                                <input type="text" disabled wire:model.live="cat_slug" class="w-full p-2 border rounded border-[#7db0ad]">
-                                @error('cat_slug') <span class="text-red-500">{{ $message }}</span> @enderror
-                            </div>
-                            <div class="mb-4">
-                                <label class="block text-[#7db0ad]">Main Category</label>
-                                <select wire:model="parent_category_id" class="w-full p-2 border rounded border-[#7db0ad]">
-                                    <option value="NULL">Select Main Category</option>
-                                    @foreach($categories as $category)
-                                    <option value="{{$category->id }}">{{ $category->name }}</option>
-                                    @endforeach
-                                </select>
-                                @error('parent_category_id')
-                                <span class="text-red-500 text-xs">{{ $message }}</span>
-                                @enderror
-                            </div>
-
-                            <div class="md:col-span-2 mb-4">
-                                <label class="block text-[#7db0ad]">Description</label>
-                                <textarea rows="2" wire:model="cat_description" class="w-full p-2 border rounded border-[#7db0ad]"></textarea>
-                                @error('cat_description') <span class="text-red-500">{{ $message }}</span> @enderror
-                            </div>
-                        </div>
-
-                        <div class="mt-6">
-                            <button type="submit" class="bg-[#7db0ad] text-white font-semibold px-4 py-2 rounded-lg hover:bg-[#689e9b]">
-                                Save Category
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+<div class="mx-auto w-full p-4 md:p-6 2xl:p-10 text-[#7db0ad]">
+    <div class="flex flex-1 justify-between">
+        <div>
+            <h1 class="text-2xl font-bold mb-4">Manage Category</h1>
+        </div>
+        <div class="relative flex flex-1">
+            <input type="search"
+                class="border w-[300px] pl-8 pr-2 py-2 rounded-2xl border-none ring-1 ring-gray-300 focus:ring-gray-400 focus:ring-2 text-[#7db0ad]"
+                placeholder="search here.."
+                wire:model.live='searchTerm' />
+            <svg xmlns="http://www.w3.org/2000/svg"
+                class="absolute left-2 top-1/2 transform -translate-y-1/2 text-[#7db0ad]"
+                width="20"
+                height="20"
+                viewBox="0 0 48 48">
+                <path d="M 20.5 6 C 12.509634 6 6 12.50964 6 20.5 C 6 28.49036 12.509634 35 20.5 35 C 23.956359 35 27.133709 33.779044 29.628906 31.75 L 39.439453 41.560547 A 1.50015 1.50015 0 1 0 41.560547 39.439453 L 31.75 29.628906 C 33.779044 27.133709 35 23.956357 35 20.5 C 35 12.50964 28.490366 6 20.5 6 z"></path>
+            </svg>
+        </div>
+        <div class="bg-[#7db0ad] text-white px-4 hover:bg-[#5a8a87] rounded-full shadow-lg flex items-center">
+            <a wire:navigate href="{{ route('category.create-category') }}" class="flex items-center space-x-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                </svg>
+                <span class="text-sm">Add Category</span>
+            </a>
         </div>
     </div>
 
-    <div class="flex">
-        @session('error')
-        <div class="bg-[#7db0ad] text-white p-5 px-4 py-4 rounded-xl" wire:loading.delay.short>
-            {{session('error')}}
-        </div>
-        @endsession
-        @session('success')
-        <div class="bg-teal-500 text-white p-5 px-4 py-4 rounded-xl" wire:loading.delay.short>
-            {{session('success')}}
-        </div>
-        @endsession
-    </div>
-
-    <div class="w-full">
+    <!-- Category Table -->
+    <div class="relative overflow-x-auto mt-5">
         <table class="w-full text-sm text-left text-[#7db0ad]">
-            <thead class="text-xs uppercase bg-gray-50 text-[#7db0ad] border-b border-[#7db0ad]">
+            <thead class="text-xs uppercase bg-gray-50">
                 <tr>
-                    <th scope="col" class="px-6 py-3">ID</th>
-                    <th scope="col" class="px-6 py-3">Category name</th>
-                    <th scope="col" class="px-6 py-3">Cat Slug</th>
-                    <th scope="col" class="px-6 py-3">Cat Description</th>
-                    <th scope="col" class="px-6 py-3">Category Parent</th>
-                    <th scope="col" class="px-6 py-3">Action</th>
+                    <th class="px-6 py-3">Category Id</th>
+                    <th class="px-6 py-3">Category Image</th>
+                    <th class="px-6 py-3">Category Name</th>
+                    <th class="px-6 py-3">Category Slug</th>
+                    <th class="px-6 py-3">Category Description</th>
+                    <th class="px-6 py-3">Action</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($categories as $category)
-                <tr class="bg-white border-b border-[#7db0ad]">
-                    <td class="px-6 py-4">{{$category->id}}</td>
-                    <th scope="row" class="px-6 py-4 font-medium text-[#7db0ad] whitespace-nowrap">{{$category->name}}</th>
+                <tr class="bg-white border-b">
+                    <th class="px-6 py-4 font-medium text-[#7db0ad] whitespace-nowrap">
+                        {{$category->id}}
+                    </th>
+                    <td class="px-6 py-4">
+                        <img src="{{ $category->image ? asset('storage/image/category/' . $category->image) : asset('path/to/default-image.jpg') }}"
+                            alt="Category Image"
+                            class="w-12 h-12 object-cover border border-gray-300">
+                    </td>
+                    <td class="px-6 py-4">{{$category->name}}</td>
                     <td class="px-6 py-4">{{$category->cat_slug}}</td>
                     <td class="px-6 py-4">{{$category->cat_description}}</td>
-                    <td class="px-6 py-4">
-                        @if($category->parentCategory == NULL)
-                        {{"Main Category"}}
-                        @else
-                        {{$category->parentCategory->name}}
-                        @endif
-                    </td>
-                    <td class="px-6 py-4 gap-4 flex">
-                        <button class="px-4 py-2 bg-[#7db0ad] text-white rounded hover:bg-[#689e9b]">Edit</button>
-                        <button wire:click="delete({{$category->id}})" class="px-4 py-2 bg-red-400 text-white rounded cursor-pointer">Delete</button>
+                    <td class="px-6 py-4 flex gap-2">
+                        <button wire:click="openModal({{ $category->id }})" class="bg-[#7db0ad] hover:bg-[#5a8a87] text-white px-4 py-2 rounded-3xl flex items-center space-x-2">
+                            <span>Edit</span>
+                        </button>
+                        <button wire:click="confirmDelete({{ $category->id }})" class="bg-red-500 hover:bg-red-400 text-white px-4 py-2 rounded-3xl flex items-center space-x-2">
+                            <span>Delete</span>
+                        </button>
                     </td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
+
+    <!-- Edit Category Modal -->
+    @if($isModalOpen)
+    <div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+        <div class="bg-white p-6 rounded-lg shadow-lg w-11/12 max-w-lg text-[#7db0ad]">
+            <h3 class="text-lg font-semibold mb-4">Edit Category</h3>
+            <form wire:submit.prevent="updateCategory">
+                <div class="mb-4">
+                    <label class="block text-sm font-medium">Category Name</label>
+                    <input type="text" wire:model.live="name" class="mt-1 block w-full p-2 border rounded">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium">Category Slug</label>
+                    <input type="text" wire:model="slug" class="mt-1 block w-full p-2 border rounded bg-gray-100" readonly>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium">Category Description</label>
+                    <textarea wire:model="description" rows="3" class="mt-1 block w-full p-2 border rounded"></textarea>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium">Category Image</label>
+                    <input type="file" wire:model="image" class="mt-1 block w-full p-2 border rounded">
+                    @if ($image)
+                    <div class="mt-2">
+                        <img src="{{ $image->temporaryUrl() }}" class="w-32 h-32 object-cover border">
+                    </div>
+                    @elseif($existingImage)
+                    <div class="mt-2">
+                        <img src="{{ asset('storage/image/category/' . $existingImage) }}" class="w-32 h-32 object-cover border">
+                    </div>
+                    @endif
+                </div>
+                <div class="flex justify-end gap-2">
+                    <button type="button" wire:click="closeModal" class="bg-gray-500 hover:bg-gray-700 text-white px-4 py-2 rounded">
+                        Cancel
+                    </button>
+                    <button type="submit" class="bg-[#7db0ad] hover:bg-[#5a8a87] text-white px-4 py-2 rounded">
+                        Update
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    @endif
+
+    <!-- Delete Confirmation Modal -->
+    @if($confirmingDelete)
+    <div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+        <div class="bg-white p-6 rounded-lg shadow-lg w-11/12 max-w-lg text-[#7db0ad]">
+            <h3 class="text-lg font-semibold mb-4">Confirm Deletion</h3>
+            <p class="mb-4">Are you sure you want to delete this category?</p>
+            <div class="flex justify-end gap-2">
+                <button wire:click="deleteCategory" class="bg-[#7db0ad] hover:bg-[#5a8a87] text-white px-4 py-2 rounded">
+                    Delete
+                </button>
+                <button wire:click="$set('confirmingDelete', false)" class="bg-gray-500 hover:bg-gray-700 text-white px-4 py-2 rounded">
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+    @endif
 </div>
