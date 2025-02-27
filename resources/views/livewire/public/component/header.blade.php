@@ -25,15 +25,35 @@
                 BIHARSHOP
             </div>
 
-            <!-- Right: Login & Social Icons -->
+            <!-- Right: User Info / Login & Social Icons -->
             <div class="flex items-center space-x-4">
-                <div class="hidden md:flex items-center space-x-2 text-gray-800">
-                    <span class="bg-gray-800 text-white w-6 h-6 flex items-center justify-center rounded-full">👤</span>
-                    <a href="#" class="text-sm">Log In</a>
-                </div>
-                <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" class="w-5 h-5"></a>
-                <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" class="w-5 h-5"></a>
-                <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/145/145808.png" class="w-5 h-5"></a>
+                @auth
+                    <!-- If user is logged in -->
+                    <div class="relative">
+                        <button onclick="toggleDropdown()" class="flex items-center space-x-2 text-gray-800">
+                            <span class="bg-gray-800 text-white w-6 h-6 flex items-center justify-center rounded-full">👤</span>
+                            <span class="text-sm">{{ Auth::user()->name }}</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <!-- Dropdown Menu -->
+                        <div id="dropdown-menu" class="hidden absolute right-0 mt-2 w-48 bg-white text-black shadow-lg rounded-md">
+                            <a href="/profile" class="block px-4 py-2 hover:bg-gray-200">Profile</a>
+                            <a href="/settings" class="block px-4 py-2 hover:bg-gray-200">Settings</a>
+                            
+                                <livewire:auth.logout/>
+                            
+                        </div>
+                    </div>
+                @else
+                    <!-- If user is not logged in -->
+                    <div class="hidden md:flex items-center space-x-2 text-gray-800">
+                        <span class="bg-gray-800 text-white w-6 h-6 flex items-center justify-center rounded-full">👤</span>
+                        <a href="{{ route('register') }}" class="text-sm">Register</a>
+                        <a href="{{ route('login') }}" class="text-sm">Login</a>
+                    </div>
+                @endauth
             </div>
         </div>
 
@@ -47,9 +67,13 @@
     </div>
 </div>
 
-<!-- JavaScript for Mobile Menu Toggle -->
+<!-- JavaScript for Mobile Menu & Dropdown -->
 <script>
     document.getElementById('menu-toggle').addEventListener('click', function() {
         document.getElementById('mobile-menu').classList.toggle('hidden');
     });
+
+    function toggleDropdown() {
+        document.getElementById('dropdown-menu').classList.toggle('hidden');
+    }
 </script>

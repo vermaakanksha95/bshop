@@ -102,8 +102,8 @@
                 </div>
 
                 <button
-                    class="flex text-white w-full justify-center rounded bg-[#7db0ad] p-3 font-medium hover:bg-[#2d6561b1]">
-                    Create
+                    class="flex text-white  justify-center rounded bg-[#7db0ad] p-3 font-medium hover:bg-[#2d6561b1]">
+                    Create Category
                 </button>
 
                 @if (session()->has('message'))

@@ -8,7 +8,7 @@
     <div>
         <h1 class="text-3xl font-semibold">I'm a product</h1>
         <p class="text-gray-500">SKU: 0012</p>
-        <p class="text-2xl font-bold mt-2">$150.00</p>
+        <p class="text-2xl font-bold mt-2">150.00</p>
 
         <!-- Size Selector -->
         <div class="mt-4">

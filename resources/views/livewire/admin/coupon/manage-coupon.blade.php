@@ -3,7 +3,7 @@
         <h1 class="text-2xl font-bold">Manage Coupons</h1>
         <a href="coupon/create-coupon" class=" px-4 py-2 text-white bg-[#7db0ad] rounded  text-xl ">Create Coupon</button>
     </div>
-    <div class="mt-6 bg-white p-4 ">
+    <div class="mt-6  p-4 ">
         <table class="w-full border-collapse border border-gray-200">
             <thead>
                 <tr class="bg-gray-100">

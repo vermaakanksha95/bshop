@@ -5,7 +5,7 @@
         </div>
         <div class="relative flex flex-1">
             <input type="search"
-                class="border w-[300px] pl-8 pr-2 py-2 rounded-2xl border-none ring-1 ring-gray-300 focus:ring-gray-400 focus:ring-2 text-[#7db0ad]"
+                class="border w-[300px] pl-8 pr-2 py-2 rounded-xl border-none ring-1 ring-gray-300 focus:ring-gray-400 focus:ring-2 text-[#7db0ad]"
                 placeholder="search here.."
                 wire:model.live='searchTerm' />
             <svg xmlns="http://www.w3.org/2000/svg"
@@ -16,11 +16,9 @@
                 <path d="M 20.5 6 C 12.509634 6 6 12.50964 6 20.5 C 6 28.49036 12.509634 35 20.5 35 C 23.956359 35 27.133709 33.779044 29.628906 31.75 L 39.439453 41.560547 A 1.50015 1.50015 0 1 0 41.560547 39.439453 L 31.75 29.628906 C 33.779044 27.133709 35 23.956357 35 20.5 C 35 12.50964 28.490366 6 20.5 6 z"></path>
             </svg>
         </div>
-        <div class="bg-[#7db0ad] text-white px-4 hover:bg-[#5a8a87] rounded-full shadow-lg flex items-center">
+        <div class="bg-[#7db0ad] text-white px-4 hover:bg-[#5a8a87] rounded  flex items-center">
             <a wire:navigate href="{{ route('category.create-category') }}" class="flex items-center space-x-2">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
-                </svg>
+                
                 <span class="text-sm">Add Category</span>
             </a>
         </div>
@@ -31,6 +29,10 @@
             {{ session('error') }}
         </div>
         @endsession
+        @session('message')
+        <div class="mt-4 p-3 bg-[#7db0ad] text-white rounded-md text-sm font-semibold hover:bg-[#699b99] transition-all">
+            {{ session('message') }}
+            @endsession
     </div>
 
 
@@ -68,10 +70,10 @@
                         @endif
                     </td>
                     <td class="px-6 py-4 flex gap-2">
-                        <button wire:click="openModal({{ $category->id }})" class="bg-[#7db0ad] hover:bg-[#5a8a87] text-white px-4 py-2 rounded-3xl flex items-center space-x-2">
+                        <button wire:click="openModal({{ $category->id }})" class="bg-[#7db0ad] hover:bg-[#5a8a87] text-white px-4 py-2 rounded-xl flex items-center space-x-2">
                             <span>Edit</span>
                         </button>
-                        <button wire:click="delete({{ $category->id }})" class="bg-red-500 hover:bg-red-400 text-white px-4 py-2 rounded-3xl flex items-center space-x-2">
+                        <button wire:click="delete({{ $category->id }})"  wire:confirm="Are you sure you want to delete this Category?"  class="bg-red-500 hover:bg-red-400 text-white px-4 py-2 rounded-xl flex items-center space-x-2">
                             <span>Delete</span>
                         </button>
                     </td>
@@ -125,21 +127,6 @@
     </div>
     @endif
 
-    <!-- Delete Confirmation Modal -->
-    @if($confirmingDelete)
-    <div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-        <div class="bg-white p-6 rounded-lg shadow-lg w-11/12 max-w-lg text-[#7db0ad]">
-            <h3 class="text-lg font-semibold mb-4">Confirm Deletion</h3>
-            <p class="mb-4">Are you sure you want to delete this category?</p>
-            <div class="flex justify-end gap-2">
-                <button wire:click="deleteCategory" class="bg-[#7db0ad] hover:bg-[#5a8a87] text-white px-4 py-2 rounded">
-                    Delete
-                </button>
-                <button wire:click="$set('confirmingDelete', false)" class="bg-gray-500 hover:bg-gray-700 text-white px-4 py-2 rounded">
-                    Cancel
-                </button>
-            </div>
-        </div>
-    </div>
-    @endif
+   
+    
 </div>
