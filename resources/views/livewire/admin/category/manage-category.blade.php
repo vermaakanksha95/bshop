@@ -25,6 +25,14 @@
             </a>
         </div>
     </div>
+    <div>
+        @session('error')
+        <div class="mt-4 p-3 bg-red-500 text-white rounded-md text-sm font-semibold hover:bg-red-700">
+            {{ session('error') }}
+        </div>
+        @endsession
+    </div>
+
 
     <!-- Category Table -->
     <div class="relative overflow-x-auto mt-5">
@@ -35,7 +43,7 @@
                     <th class="px-6 py-3">Category Image</th>
                     <th class="px-6 py-3">Category Name</th>
                     <th class="px-6 py-3">Category Slug</th>
-                    <th class="px-6 py-3">Category Description</th>
+                    <th class="px-6 py-3">Category Parent</th>
                     <th class="px-6 py-3">Action</th>
                 </tr>
             </thead>
@@ -52,12 +60,18 @@
                     </td>
                     <td class="px-6 py-4">{{$category->name}}</td>
                     <td class="px-6 py-4">{{$category->cat_slug}}</td>
-                    <td class="px-6 py-4">{{$category->cat_description}}</td>
+                    <td class="px-6 py-4">
+                        @if($category->parentCategory == NULL)
+                        {{"Main Category"}}
+                        @else
+                        {{$category->parentCategory->name}}
+                        @endif
+                    </td>
                     <td class="px-6 py-4 flex gap-2">
                         <button wire:click="openModal({{ $category->id }})" class="bg-[#7db0ad] hover:bg-[#5a8a87] text-white px-4 py-2 rounded-3xl flex items-center space-x-2">
                             <span>Edit</span>
                         </button>
-                        <button wire:click="confirmDelete({{ $category->id }})" class="bg-red-500 hover:bg-red-400 text-white px-4 py-2 rounded-3xl flex items-center space-x-2">
+                        <button wire:click="delete({{ $category->id }})" class="bg-red-500 hover:bg-red-400 text-white px-4 py-2 rounded-3xl flex items-center space-x-2">
                             <span>Delete</span>
                         </button>
                     </td>

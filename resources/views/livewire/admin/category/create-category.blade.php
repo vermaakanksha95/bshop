@@ -7,7 +7,7 @@
                         Parent Category
                     </label>
                     <select name="parent_category_id" wire:model="parent_category_id" class="w-full rounded border border-gray-300 bg-white px-5 py-3 font-normal text-gray-700">
-                        <option value="NULL">Select Main Category</option>
+                        <option value="NULL">Select  Category</option>
                         @foreach($categories as $category)
                         <option value="{{$category->id }}">{{ $category->name }}</option>
                         @endforeach

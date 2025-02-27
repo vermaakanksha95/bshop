@@ -37,6 +37,7 @@ class ManageCategory extends Component
             'categories' => $categories,
         ]);
     }
+    
 
     public function openModal($categoryId)
     {
@@ -86,28 +87,17 @@ class ManageCategory extends Component
         session()->flash('message', 'Category updated successfully.');
     }
 
-    public function deleteCategory()
+    public function delete(Category $category)
     {
-        if ($this->confirmingDelete) {
-            $category = Category::find($this->categoryId);
-
-            // Delete image
-            if ($category->image) {
-                Storage::delete('public/image/category/' . $category->image);
-            }
-
-            // Delete category
-            $category->delete();
-
-            $this->confirmingDelete = false;
-            session()->flash('message', 'Category deleted successfully.');
-        }
+        
+       if($category->children()->exists()){
+           return redirect()->back()->with('error', 'Category has subcategories. Please delete them first.');
+        } 
+        $category->delete();
+        return redirect()->back()->with('message', 'Category deleted successfully.');
     }
 
-    public function confirmDelete($categoryId)
-    {
-        $this->categoryId = $categoryId;
-        $this->confirmingDelete = true;
-    }
+
+   
 }
 

@@ -25,7 +25,7 @@ class Category extends Model
         return $this->hasOne(Category::class, 'id', 'parent_category_id');
     }
 
-    public function subCategory(): HasMany
+    public function children(): HasMany
     {
         return $this->hasMany(Category::class, 'parent_category_id');
     }
