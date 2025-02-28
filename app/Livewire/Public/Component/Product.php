@@ -7,9 +7,18 @@ use Livewire\Component;
 
 class Product extends Component
 {
-public function render()
+    public $products; // Define a public property to store products
+
+    public function mount()
     {
-        $products = ModelsProduct::all();
-        return view('livewire.public.component.product',['products'=>$products]);
+        $this->products = ModelsProduct::all(); // Fetch all products
+    }
+
+    public function render()
+    {
+        return view('livewire.public.component.product', [
+            'products' => $this->products, // Pass products to the Blade view
+        ]);
     }
 }
+

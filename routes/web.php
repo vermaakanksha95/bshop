@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 // Public Route
 
     Route::get('/', Home::class)->name('home');
-    Route::get('/single-view', Singleview::class)->name('single-view');
+    Route::get('/single-view/{slug}', Singleview::class)->name('single-view');
     
     
 
