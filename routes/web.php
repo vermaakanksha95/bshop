@@ -9,15 +9,20 @@ use App\Livewire\Admin\Product\ManageProduct;
 use App\Livewire\Admin\Product\ViewProduct;
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\Register;
+
 use App\Livewire\Public\Component\Singleview;
 use App\Livewire\Public\Home;
+
 use Illuminate\Support\Facades\Route;
 
 // Public Route
-Route::group(['middleware' => ['auth']], function () {
+
     Route::get('/', Home::class)->name('home');
     Route::get('/single-view', Singleview::class)->name('single-view');
-});
+    
+    
+
+
 
 // Admin Route
 Route::prefix('admin')->middleware(['auth', AdminMiddleware::class])->group(function () {
@@ -33,6 +38,10 @@ Route::prefix('admin')->middleware(['auth', AdminMiddleware::class])->group(func
     Route::get('/manage-coupon', ManageCoupon::class)->name('coupon.manage-coupon');
     Route::get('viewproduct/{slug}', ViewProduct::class)->name('product.viewproduct');
 });
+
+
+
+
 
 // Authentication Route
 Route::get("/register", Register::class)->name('register');

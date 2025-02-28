@@ -12,6 +12,10 @@ class Home extends Component
     public function render()
     {
         $categories = Category::all();
-        return view('livewire.public.home', compact('categories'));
+
+        return view('livewire.public.home', [
+            'categories' => $categories,
+
+        ]);
     }
 }
