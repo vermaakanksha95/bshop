@@ -1,6 +1,6 @@
 <div>
     <div class="relative overflow-hidden mt-28 md:min-h-[90vh]">
-        <img src="herosection2.jpg" alt="" class="object-fit w-full h-full" />
+        <img src="home.webp" alt="" class="object-fit w-full h-full" />
     </div>
 
     <div class="max-w-7xl mx-auto py-16">

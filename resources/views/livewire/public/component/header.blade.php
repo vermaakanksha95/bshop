@@ -14,10 +14,10 @@
 
             <!-- Navigation Links -->
             <ul id="menu" class="hidden md:flex space-x-6 text-[#7db0ad] uppercase tracking-widest text-lg">
-                <li><a href="#">Shop</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">FAQ</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="/">Shop</a></li>
+                <li><a href="about">About</a></li>
+                <li><a href="faq">FAQ</a></li>
+                <li><a href="contact">Contact</a></li>
             </ul>
 
             <!-- Center Logo -->
