@@ -9,14 +9,13 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_id')->constrained()->onDelete('cascade');
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->integer('rating');  // Rating out of 5
-            $table->text('review')->nullable();     // Review text
+            $table->string('name');
+            $table->integer('rating');
+            $table->text('review');
             $table->timestamps();
         });
     }

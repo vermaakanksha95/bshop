@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -7,22 +6,25 @@ use Illuminate\Database\Eloquent\Model;
 
 class Review extends Model
 {
-    use HasFactory;
+use HasFactory;
 
-    protected $fillable = [
-        'product_id',
-        'user_id',
-        'rating',
-        'review',
-    ];
+/**
+* The attributes that are mass assignable.
+*
+* @var array
+*/
+protected $fillable = [
+'name', // Reviewer's name
+'rating', // Rating (e.g., 1 to 5)
+'review', // Review text
+];
 
-    public function product()
-    {
-        return $this->belongsTo(Product::class);
-    }
-
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
+/**
+* The attributes that should be cast.
+*
+* @var array
+*/
+protected $casts = [
+'rating' => 'integer', // Ensure rating is treated as an integer
+];
 }

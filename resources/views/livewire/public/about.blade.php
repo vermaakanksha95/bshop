@@ -86,6 +86,5 @@
             <a href="register" class="bg-[#7db0ad] text-white px-6 py-3 rounded-lg text-lg font-semibold transform transition-all hover:scale-110 hover:shadow-lg duration-300">Sign Up Now</a>
         </div>
     </div>
-
     <livewire:chat-component />
 </div>

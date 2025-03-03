@@ -11,9 +11,11 @@ class Singleview extends Component
     #[Layout('components.layouts.public')]
 
     public $product; // Store product data
+    public $reviews = []; // Store reviews data
 
     public function mount($slug) // Capture the slug parameter
     {
+
         $this->product = Product::where('slug', $slug)->firstOrFail(); // Fetch product
     }
 
@@ -21,6 +23,7 @@ class Singleview extends Component
     {
         return view('livewire.public.component.singleview', [
             'product' => $this->product, // Pass product to Blade
+
         ]);
     }
 }

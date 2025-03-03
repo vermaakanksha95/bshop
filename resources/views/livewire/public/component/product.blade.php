@@ -1,23 +1,114 @@
-<div class="bg-slate-100 flex justify-center items-center px-4">
-    <section class="text-center py-12 w-full">
-        <h2 class="text-3xl md:text-4xl text-teal-700 tracking-wide mb-6">Explore the Collection</h2>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 sm:px-8 lg:px-12">
-            @if($products->count() > 0) <!-- Check if products exist -->
-                @foreach($products as $product) <!-- Now $product is correctly defined -->
-                    <a href="{{ route('single-view', $product->slug) }}" class="relative group w-full max-w-xs mx-auto overflow-hidden">
-                        <img src="{{ asset('images/' . $product->image) }}" class="w-full rounded transition-transform duration-500 transform group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gray-200 opacity-0 group-hover:opacity-60 transition-opacity"></div>
-                        <button class="absolute inset-x-0 bottom-4 text-gray-700 text-center py-2 bg-white opacity-0 group-hover:opacity-100 transition-opacity rounded-md shadow-md">
-                            Quick View
-                        </button>
-                        <p class="text-center mt-4 text-lg text-gray-700">{{ $product->name }}</p>
-                        <p class="text-center text-gray-500">{{ $product->price }}</p>
-                    </a>
-                @endforeach
-            @else
-                <p class="text-center text-gray-600">No products found.</p>
-            @endif
+<div class="bg-gray-100">
+  <!-- Featured Products Section -->
+  <section class="py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <!-- Section Title -->
+      <h2 class="text-3xl font-bold text-[#2e716b] text-center mb-8 animate-fade-in">
+        Featured Products
+      </h2>
+
+      <!-- Product Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Product Card 1 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2 animate-fade-in-up">
+          <img
+            src="https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
+            alt="Product 1"
+            class="w-full h-64 object-cover"
+          />
+          <div class="p-4">
+            <!-- Product Name -->
+            <h3 class="text-lg font-semibold text-gray-800 mb-2">Men's Casual Shirt</h3>
+            <!-- Product Price -->
+            <p class="text-[#2e716b] font-bold text-xl mb-4">₹2900.00</p>
+            <!-- Wishlist Icon and Add to Cart Button -->
+            <div class="flex items-center justify-between">
+              <!-- Wishlist Icon -->
+              <button class="text-gray-500 hover:text-[#2e716b] transition-colors duration-300">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                </svg>
+              </button>
+              <!-- Add to Cart Button -->
+              <button class="bg-[#2e716b] text-white px-6 py-2 rounded-lg hover:bg-[#3a8a82] transition-colors duration-300">
+                Add to Cart
+              </button>
+            </div>
+          </div>
         </div>
-    </section>
+
+        <!-- Product Card 2 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2 animate-fade-in-up">
+          <img
+            src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
+            alt="Product 2"
+            class="w-full h-64 object-cover"
+          />
+          <div class="p-4">
+            <h3 class="text-lg font-semibold text-gray-800 mb-2">Women's Summer Dress</h3>
+            <p class="text-[#2e716b] font-bold text-xl mb-4">₹4900.00</p>
+            <div class="flex items-center justify-between">
+              <button class="text-gray-500 hover:text-[#2e716b] transition-colors duration-300">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                </svg>
+              </button>
+              <button class="bg-[#2e716b] text-white px-6 py-2 rounded-lg hover:bg-[#3a8a82] transition-colors duration-300">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Card 3 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2 animate-fade-in-up">
+          <img
+            src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1972&q=80"
+            alt="Product 3"
+            class="w-full h-64 object-cover"
+          />
+          <div class="p-4">
+            <h3 class="text-lg font-semibold text-gray-800 mb-2">Unisex Hoodie</h3>
+            <p class="text-[#2e716b] font-bold text-xl mb-4">₹3900.00</p>
+            <div class="flex items-center justify-between">
+              <button class="text-gray-500 hover:text-[#2e716b] transition-colors duration-300">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                </svg>
+              </button>
+              <button class="bg-[#2e716b] text-white px-6 py-2 rounded-lg hover:bg-[#3a8a82] transition-colors duration-300">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Card 4 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2 animate-fade-in-up">
+          <img
+            src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
+            alt="Product 4"
+            class="w-full h-64 object-cover"
+          />
+          <div class="p-4">
+            <h3 class="text-lg font-semibold text-gray-800 mb-2">Women's Denim Jacket</h3>
+            <p class="text-[#2e716b] font-bold text-xl mb-4">₹5900.00</p>
+            <div class="flex items-center justify-between">
+              <button class="text-gray-500 hover:text-[#2e716b] transition-colors duration-300">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                </svg>
+              </button>
+              <button class="bg-[#2e716b] text-white px-6 py-2 rounded-lg hover:bg-[#3a8a82] transition-colors duration-300">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ 
 </div>

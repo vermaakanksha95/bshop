@@ -1,7 +1,5 @@
 <div class="flex-1 sm:px-4">
     <div class="bg-white p-6 rounded-lg shadow-lg">
-
-
         <div class="w-full">
             <div class="flex justify-between items-center mb-6 border-b border-gray-200 pb-2">
                 <span class="text-2xl font-bold text-gray-800">My wishlist ({{ $groupedWishlist->count() }})</span>
