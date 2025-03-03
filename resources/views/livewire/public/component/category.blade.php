@@ -10,6 +10,7 @@
       <!-- Category Grid -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Category Card 1 -->
+         @foreach($categories as $category)
         <div class="bg-white rounded-lg shadow-xl overflow-hidden text-center p-6 hover:shadow-2xl transition-shadow duration-500 transform hover:-translate-y-2 animate__animated animate__fadeInUp">
           <div class="flex justify-center">
             <img
@@ -18,11 +19,12 @@
               class="w-32 h-32 object-cover rounded-full transform hover:scale-110 transition-transform duration-500"
             />
           </div>
-          <h3 class="text-2xl font-semibold text-gray-800 mt-6">Dresses</h3>
-          <p class="text-gray-600 mt-2">Explore our latest collection of trendy dresses.</p>
+          <h3 class="text-2xl font-semibold text-gray-800 mt-6">{{ $category->name }}</h3>
+          <p class="text-gray-600 mt-2">{{ $category->description }}</p>
         </div>
+        @endforeach
 
-        <!-- Category Card 2 -->
+        {{-- <!-- Category Card 2 -->
         <div class="bg-white rounded-lg shadow-xl overflow-hidden text-center p-6 hover:shadow-2xl transition-shadow duration-500 transform hover:-translate-y-2 animate__animated animate__fadeInUp animate__delay-1s">
           <div class="flex justify-center">
             <img
@@ -85,7 +87,7 @@
           </div>
           <h3 class="text-2xl font-semibold text-gray-800 mt-6">Accessories</h3>
           <p class="text-gray-600 mt-2">Complete your look with our trendy accessories.</p>
-        </div>
+        </div> --}}
       </div>
     </div>
   </section>

@@ -49,7 +49,7 @@
         <!-- Text Section -->
         <div class="space-y-6">
           <!-- Introduction -->
-          <h2 class="text-4xl sm:text-5xl font-bold text-[#2e716b] animate__animated animate__fadeInDown">
+          <h2 class="text-4xl sm:text-5xl  text-[#2e716b] animate__animated animate__fadeInDown">
             About Us
           </h2>
           <p class="text-lg text-gray-700 animate__animated animate__fadeIn animate__delay-1s">

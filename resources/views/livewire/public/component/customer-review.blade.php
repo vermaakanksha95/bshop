@@ -39,7 +39,7 @@
               </div>
               <!-- Feedback -->
               <p class="text-gray-700 mb-6 text-lg">
-                "I absolutely love the quality of the clothes! The fit is perfect, and the fabric feels amazing. Highly recommend Clothify!"
+                "I absolutely love the quality of the clothes! Highly recommend BiharShop!"
               </p>
               <!-- Customer Name -->
               <p class="text-sm font-semibold text-[#2e716b]">- Sarah T.</p>
