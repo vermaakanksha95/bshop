@@ -1,45 +1,75 @@
-<div>
-    <div class="w-full bg-gray-100 py-12 flex justify-center">
-        <div class="w-8/12 text-center">
-            <h2 class="text-3xl font-light text-gray-900">
-                Never miss our updates about new arrivals and special offers
-            </h2>
-
-            <div class="mt-6">
-                <label for="email" class="block text-gray-600 text-lg mb-2">Enter your email here *</label>
-                <input type="email" id="email" class="w-full border-b border-gray-600 text-center text-lg focus:outline-none focus:border-gray-900 bg-transparent">
-            </div>
-
-            <div class="mt-4 flex items-center justify-center space-x-2">
-                <input type="checkbox" id="subscribe" class="w-5 h-5 border border-gray-600 rounded">
-                <label for="subscribe" class="text-gray-700 text-lg">Yes, subscribe me to your newsletter. *</label>
-            </div>
-
-            <div class="mt-6">
-                <button class="bg-gray-900 text-white px-6 py-3 text-lg rounded hover:bg-gray-800">
-                    Subscribe Now
-                </button>
-            </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Footer Section</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+<body class="bg-gray-100">
+  <!-- Footer Section -->
+  <footer class="bg-[#619793] text-white py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <!-- Footer Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- About Us -->
+        <div class="mb-8">
+          <h3 class="text-xl font-bold mb-4">About Us</h3>
+          <p class="text-gray-300">
+            BiharShop is your go-to destination for trendy and affordable fashion. We believe in quality, sustainability, and inclusivity.
+          </p>
         </div>
+
+        <!-- Quick Links -->
+        <div class="mb-8">
+          <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">Home</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">Shop</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">Categories</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Policies -->
+        <div class="mb-8">
+          <h3 class="text-xl font-bold mb-4">Policies</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">Privacy Policy</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">Terms & Conditions</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">Return Policy</a></li>
+          </ul>
+        </div>
+
+        <!-- Social Media -->
+        <div class="mb-8">
+          <h3 class="text-xl font-bold mb-4">Follow Us</h3>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">
+              <i class="fab fa-facebook text-2xl"></i>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">
+              <i class="fab fa-instagram text-2xl"></i>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">
+              <i class="fab fa-twitter text-2xl"></i>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">
+              <i class="fab fa-whatsapp text-2xl"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <div class="border-t border-gray-600 mt-8 pt-8 text-center">
+        <p class="text-gray-300">
+          &copy; 2023 Clothify. All rights reserved.
+        </p>
+      </div>
     </div>
-
-    <footer class="text-white">
-        <!-- Top Navigation Links -->
-        <div class="bg-gray-900 py-4">
-            <ul class="flex justify-center space-x-8 uppercase text-sm tracking-wider">
-                <li><a href="#" class="hover:underline">Shop</a></li>
-                <li><a href="#" class="hover:underline">About</a></li>
-                <li><a href="#" class="hover:underline">Contact</a></li>
-                <li><a href="#" class="hover:underline">FAQ</a></li>
-                <li><a href="#" class="hover:underline">Shipping & Return</a></li>
-                <li><a href="#" class="hover:underline">Store Policy</a></li>
-            </ul>
-        </div>
-
-        <!-- Bottom Copyright Section -->
-        <div class="bg-[#e3dcd1] py-4 text-center text-gray-800 text-sm">
-            © 2025 by Comestro Techlabs Pvt Ltd. Powered and secured by
-            <a href="#" class="underline">BiharShop</a>
-        </div>
-    </footer>
-</div>
+  </footer>
+</body>
+</html>
