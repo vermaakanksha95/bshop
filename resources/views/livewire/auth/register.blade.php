@@ -1,48 +1,118 @@
-<div class="flex items-center justify-center min-h-screen mt-20 bg-gray-100">
-    <div class="bg-white shadow-lg rounded-lg flex max-w-4xl w-full overflow-hidden">
-        <!-- Left Side: Illustration -->
-        <div class="w-1/2 bg-blue-50 flex items-center justify-center p-8">
-          <img src="cloth.gif" alt="Registration Animation">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts for Stylish Typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+    .heading-font {
+      font-family: 'Playfair Display', serif;
+    }
+  </style>
+</head>
+<body class="bg-[#f9f9f9]">
+  <!-- Registration Section -->
+  <section class="min-h-screen flex items-center justify-center p-6  w-full">
+    <div class=" w-full bg-white rounded-xl shadow-lg overflow-hidden flex flex-col lg:flex-row">
+      <!-- Left Side: Branding and Image -->
+      <div class="lg:w-1/2 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1523381294911-8d3cead13475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+        <div class="bg-black bg-opacity-50 h-full p-8 flex flex-col justify-center">
+          <h1 class="text-5xl font-bold text-white heading-font mb-4">Welcome to BiharShop</h1>
+          <p class="text-lg text-gray-200">Join our fashion community and explore the latest trends.</p>
         </div>
-        
-        <!-- Right Side: Form -->
-        <div class="w-1/2 p-8">
-            <h2 class="text-2xl font-semibold mb-6">Be the first to grab the trendiest styles—Register now!</h2>
-            
-            <form wire:submit.prevent="save">
-                <div class="mb-4">
-                    <label class=""> Name</label>
-                    <input type="text" wire:model="name" placeholder="Name" class="w-full p-2 border rounded">
-                    @error('name')<span class="text-red-500 text-xs">{{ $message }}</span>@enderror
-                </div>
-                <div class="mb-4">
-                    <label class=""> Email</label>
-                    <input type="email" wire:model="email" placeholder="Email" class="w-full p-2 border rounded">
-                     @error('email')<span class="text-red-500 text-xs">{{ $message }}</span>@enderror
-                </div>
-                <div class="mb-4">
-                    <label class=""> Contact</label>
-                    <input type="number" wire:model="contact" placeholder="Contact" class="w-full p-2 border rounded">
-                     @error('contact')<span class="text-red-500 text-xs">{{ $message }}</span>@enderror
-                </div>
-                
-                <div class="mb-4">
-                    <label class=""> Password</label>
-                    <input type="password" wire:model="password" placeholder="Password" class="w-full p-2 border rounded">
-                     @error('password')<span class="text-red-500 text-xs">{{ $message }}</span>@enderror
-                </div>
+      </div>
 
-                <div class="flex items-center justify-between mb-4">
-                     <label class="flex items-center">
-                        <input type="checkbox" class="mr-2"> Remember Password
-                    </label> 
-                    <a href="/login" class="text-blue-500 text-sm">Login</a>
-                </div>
-                <div class="flex space-x-4">
-                    <button type="submit" class="bg-[#7db0ad] text-white px-6 py-2 rounded">Register</button>
-                    
-                </div>
-            </form>
-        </div>
+      <!-- Right Side: Registration Form -->
+      <div class="lg:w-1/2 p-8">
+        <h2 class="text-3xl font-bold text-[#2e716b] heading-font mb-6">Create Your Account</h2>
+        <form class="space-y-6">
+          <!-- Full Name -->
+          <div>
+            <label for="fullName" class="block text-sm font-medium text-gray-700">Full Name</label>
+            <input
+              type="text"
+              id="fullName"
+              name="fullName"
+              placeholder="Enter your full name"
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2e716b] focus:border-transparent"
+              required
+            />
+          </div>
+
+          <!-- Email -->
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter your email"
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2e716b] focus:border-transparent"
+              required
+            />
+          </div>
+
+          <!-- Password -->
+          <div>
+            <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Enter your password"
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2e716b] focus:border-transparent"
+              required
+            />
+          </div>
+
+          <!-- Confirm Password -->
+          <div>
+            <label for="confirmPassword" class="block text-sm font-medium text-gray-700">Confirm Password</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              placeholder="Confirm your password"
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2e716b] focus:border-transparent"
+              required
+            />
+          </div>
+
+          <!-- Terms and Conditions -->
+          <div class="flex items-center">
+            <input
+              type="checkbox"
+              id="terms"
+              name="terms"
+              class="w-4 h-4 text-[#2e716b] border-gray-300 rounded focus:ring-[#2e716b]"
+              required
+            />
+            <label for="terms" class="ml-2 text-sm text-gray-600">
+              I agree to the <a href="#" class="text-[#2e716b] hover:underline">terms and conditions</a>.
+            </label>
+          </div>
+
+          <!-- Submit Button -->
+          <button
+            type="submit"
+            class="w-full bg-[#2e716b] text-white px-6 py-3 rounded-lg hover:bg-[#3a8a82] transition-colors duration-300"
+          >
+            Sign Up
+          </button>
+
+          <!-- Login Link -->
+          <p class="text-sm text-gray-600 text-center">
+            Already have an account? <a href="#" class="text-[#2e716b] hover:underline">Log in here</a>.
+          </p>
+        </form>
+      </div>
     </div>
-</div>
+  </section>
+</body>
+</html>

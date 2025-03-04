@@ -14,13 +14,13 @@
         <div class="bg-white rounded-lg shadow-xl overflow-hidden text-center p-6 hover:shadow-2xl transition-shadow duration-500 transform hover:-translate-y-2 animate__animated animate__fadeInUp">
           <div class="flex justify-center">
             <img
-              src="https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
+              src="c2.jpg"
               alt="Dresses"
               class="w-32 h-32 object-cover rounded-full transform hover:scale-110 transition-transform duration-500"
             />
           </div>
           <h3 class="text-2xl font-semibold text-gray-800 mt-6">{{ $category->name }}</h3>
-          <p class="text-gray-600 mt-2">{{ $category->description }}</p>
+          <p class="text-gray-600 mt-2">{{ $category->cat_description}}</p>
         </div>
         @endforeach
 

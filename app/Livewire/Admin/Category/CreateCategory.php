@@ -11,7 +11,7 @@ class CreateCategory extends Component
 {
     use WithFileUploads;
     public $title;
-    public $slug;
+    public $cat_slug;
     public $cat_description;
     public $photo;  // For image file upload
     public $parent_category_id;
@@ -22,7 +22,7 @@ class CreateCategory extends Component
         return [
             'parent_category_id' => ['nullable', 'exists:categories,id'],
             'title' => ['required', 'string', 'max:255'],
-            'slug' => ['required', 'string', 'max:255'],
+            'cat_slug' => ['required', 'string', 'max:255'],
             'cat_description' => ['required', 'string', 'max:255'],
             'photo' => ['nullable', 'image', 'mimes:jpg,jpeg,png', 'max:2048']
         ];
@@ -30,7 +30,7 @@ class CreateCategory extends Component
     // Method to update the slug automatically when the title is updated
     public function updatedTitle($value)
     {
-        $this->slug = Str::slug($value);
+        $this->cat_slug = Str::slug($value);
     }
 
     // Method to handle the form submission
