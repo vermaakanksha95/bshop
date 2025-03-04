@@ -43,8 +43,8 @@ Route::prefix('admin')->middleware(['auth', AdminMiddleware::class])->group(func
     Route::get('/manage-coupon', ManageCoupon::class)->name('coupon.manage-coupon');
     Route::get('viewproduct/{slug}', ViewProduct::class)->name('product.viewproduct');
     Route::get('/create-order',CreateOrder::class)->name('order.create-order'); 
-    Route::get('/manage-order',ManageOrder::class)->name('order.manage-order'); 
-    Route::get('/create-address',CreateAddress::class)->name('address.create-address'); 
+    Route::get('/manage-order',ManageOrder::class)->name('order.manage-order');
+    Route::get('/create-address', CreateAddress::class)->name('address.create-address');
     Route::get('/manage-address',ManageAddress::class)->name('address.manage-address'); 
 
 });

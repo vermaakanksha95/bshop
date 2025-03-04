@@ -2,7 +2,7 @@
     <div class="rounded-sm bg-white p-6 w-full max-w-4xl">
         <form wire:submit.prevent="saveAddress">
             <!-- User ID (hidden if passed from parent) -->
-            <input type="hidden" wire:model="user_id">
+           
 
             <!-- Grid Layout -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -23,7 +23,7 @@
                     <label class="mb-3 block text-sm font-medium text-gray-800">
                         Phone
                     </label>
-                    <input type="text" wire:model="phone" placeholder="Enter phone number"
+                    <input type="number" wire:model="phone" placeholder="Enter phone number"
                         class="w-full rounded border border-gray-300 bg-white px-5 py-3 text-gray-700 font-normal" />
                     @error('phone')
                     <span class="text-red-500 text-xs">{{ $message }}</span>
@@ -35,7 +35,7 @@
                     <label class="mb-3 block text-sm font-medium text-gray-800">
                         Alternate Phone
                     </label>
-                    <input type="text" wire:model="alt_phone" placeholder="Enter alternate phone number"
+                    <input type="number" wire:model="alt_phone" placeholder="Enter alternate phone number"
                         class="w-full rounded border border-gray-300 bg-white px-5 py-3 text-gray-700 font-normal" />
                     @error('alt_phone')
                     <span class="text-red-500 text-xs">{{ $message }}</span>
@@ -131,7 +131,7 @@
                     <label class="mb-3 block text-sm font-medium text-gray-800">
                         Postal Code
                     </label>
-                    <input type="text" wire:model="postal_code" placeholder="Enter postal code"
+                    <input type="number" wire:model="postal_code" placeholder="Enter postal code"
                         class="w-full rounded border border-gray-300 bg-white px-5 py-3 text-gray-700 font-normal" />
                     @error('postal_code')
                     <span class="text-red-500 text-xs">{{ $message }}</span>

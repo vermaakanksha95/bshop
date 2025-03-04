@@ -10,6 +10,7 @@ use Illuminate\Validation\Rule;
 class CreateAddress extends Component
 {
     // Form fields
+  
     public $user_id;
     public $name;
     public $phone;
@@ -28,8 +29,8 @@ class CreateAddress extends Component
     protected $rules = [
         'user_id' => 'required|exists:users,id',
         'name' => 'required|string|max:255',
-        'phone' => 'required|string|max:15',
-        'alt_phone' => 'nullable|string|max:15',
+        'phone' => 'required|string|min:10',
+        'alt_phone' => 'nullable|string|min:10',
         'address_type' => 'nullable|string|max:255',
         'landmark' => 'nullable|string|max:255',
         'street' => 'nullable|string|max:255',
@@ -37,19 +38,20 @@ class CreateAddress extends Component
         'address_line' => 'nullable|string|max:255',
         'city' => 'required|string|max:255',
         'state' => 'required|string|max:255',
-        'postal_code' => 'required|string|max:10',
+        'postal_code' => 'required|string|min:6',
         'status' => 'boolean',
     ];
-
-    
-    public function mount($userId = null)
-    {
-        $this->user_id = $userId;
+    public function mount(){
+        $this->user_id = User::first()->id;
+        // dd($this->user_id);
     }
 
+
+    
     // Save address
     public function saveAddress()
     {
+        
         $this->validate();
 
         Address::create([
@@ -77,6 +79,6 @@ class CreateAddress extends Component
 
     public function render()
     {
-        return view('livewire.admin.address.create-address');
+        return view('livewire.admin.address.create-address',);
     }
 }

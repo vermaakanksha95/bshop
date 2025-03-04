@@ -14,9 +14,10 @@
 
 <body>
     @include('components.navbar')
-    <div class=" flex gap-6 ">
+<div class="flex">
+    <div class="  gap-6  w-4/12  ">
         <!-- Sidebar -->
-        <div class="w-80 bg-[#7db0ad] text-white p-5 space-y-6 h-screen text-xl ">
+        <div class=" fixed bg-[#7db0ad] text-white p-5 space-y-6 h-screen text-xl  ">
             <h2 class="text-xl font-bold">Admin Panel</h2>
 
             <ul>
@@ -103,13 +104,15 @@
             </ul>
         </div>
 
-
-        <div class=" w-full">
+    </div>
+        <div class=" w-8/12">
             {{$slot}}
+
         </div>
 
 
     </div>
+
 
 
 
