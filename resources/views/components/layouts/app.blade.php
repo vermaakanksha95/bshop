@@ -69,7 +69,7 @@
                         </svg>
                     </button>
                     <ul x-show="open" class="ml-5 mt-2 space-y-2">
-                        <li><a href="{{route('address.create-address',['user' => $user->id])}}" class="block p-2 rounded-md hover:bg-[#2e716b]">Create Address</a></li>
+                        <li><a href="{{route('address.create-address')}}" class="block p-2 rounded-md hover:bg-[#2e716b]">Create Address</a></li>
                         <li><a href="{{route('address.manage-address')}}" class="block p-2 rounded-md hover:bg-[#2e716b]">Manage Address</a></li>
                     </ul>
                 </li>
