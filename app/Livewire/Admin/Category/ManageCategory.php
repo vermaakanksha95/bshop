@@ -14,7 +14,7 @@ class ManageCategory extends Component
     public $searchTerm = '';
     public $categoryId;
     public $name;
-    public $slug;
+    public $cat_slug;
     public $description;
     public $image;
     public $existingImage;
@@ -24,7 +24,7 @@ class ManageCategory extends Component
 
     protected $rules = [
         'name' => 'required|string|max:255',
-        'slug' => 'required|string|max:255',
+        'cat_slug' => 'required|string|max:255',
         'description' => 'nullable|string',
         'image' => 'nullable|image|max:2048',
     ];
@@ -44,7 +44,7 @@ class ManageCategory extends Component
         $this->categoryId = $categoryId;
         $category = Category::find($this->categoryId);
         $this->name = $category->name;
-        $this->slug = $category->cat_slug;
+        $this->cat_slug = $category->cat_slug;
         $this->description = $category->cat_description;
         $this->existingImage = $category->image;
         $this->isModalOpen = true;
@@ -57,7 +57,7 @@ class ManageCategory extends Component
     }
     public function updatedName($value)
     {
-        $this->slug = Str::slug($value);
+        $this->cat_slug = Str::slug($value);
     }
 
     public function updateCategory()
