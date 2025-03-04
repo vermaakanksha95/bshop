@@ -61,6 +61,30 @@
                         <li><a href="{{route('coupon.manage-coupon')}}" class="block p-2 rounded-md hover:bg-[#2e716b]">Manage Coupon</a></li>
                     </ul>
                 </li>
+                <li x-data="{ open: false }">
+                    <button @click="open = !open" class="w-full flex justify-between p-3 rounded-md hover:bg-[#2e716b]">
+                        Address
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform" :class="{'rotate-180': open}" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06-.02L10 10.06l3.71-3.87a.75.75 0 111.08 1.04l-4.25 4.44a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <ul x-show="open" class="ml-5 mt-2 space-y-2">
+                        <li><a href="{{route('address.create-address')}}" class="block p-2 rounded-md hover:bg-[#2e716b]">Create Address</a></li>
+                        <li><a href="{{route('address.manage-address')}}" class="block p-2 rounded-md hover:bg-[#2e716b]">Manage Address</a></li>
+                    </ul>
+                </li>
+                <li x-data="{ open: false }">
+                    <button @click="open = !open" class="w-full flex justify-between p-3 rounded-md hover:bg-[#2e716b]">
+                        Order
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform" :class="{'rotate-180': open}" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06-.02L10 10.06l3.71-3.87a.75.75 0 111.08 1.04l-4.25 4.44a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <ul x-show="open" class="ml-5 mt-2 space-y-2">
+                        <li><a href="{{route('order.create-order')}}" class="block p-2 rounded-md hover:bg-[#2e716b]">Create Order</a></li>
+                        <li><a href="{{route('order.manage-order')}}" class="block p-2 rounded-md hover:bg-[#2e716b]">Manage Order</a></li>
+                    </ul>
+                </li>
                 <!-- <li x-data="{ open: false }">
                     <button @click="open = !open" class="w-full flex justify-between p-3 rounded-md hover:bg-gray-700">
                         Category
