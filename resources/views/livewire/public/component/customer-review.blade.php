@@ -64,7 +64,7 @@
                 <span class="text-yellow-400 text-2xl">★★★★★</span>
               </div>
               <p class="text-gray-700 mb-6 text-lg">
-                "Clothify has become my favorite online store. The clothes are stylish, affordable, and super comfortable!"
+                "BiharShop has become my favorite online store. The clothes are stylish, affordable, and super comfortable!"
               </p>
               <p class="text-sm font-semibold text-[#2e716b]">- Emily R.</p>
             </div>
@@ -133,7 +133,7 @@
                 <span class="text-yellow-400 text-2xl">★★★★★</span>
               </div>
               <p class="text-gray-700 mb-6 text-lg">
-                "Clothify has become my favorite online store. The clothes are stylish, affordable, and super comfortable!"
+                "BiharShop has become my favorite online store. The clothes are stylish, affordable, and super comfortable!"
               </p>
               <p class="text-sm font-semibold text-[#2e716b]">- Emily R.</p>
             </div>
